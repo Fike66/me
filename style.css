@@ -167,7 +167,7 @@ body {
 
     font-size: 48px;
 
-    color: rgba(17, 191, 203, 0.18);
+    color: rgba(203, 135, 17, 0.18);
 
     transform: rotate(160deg);
 }
@@ -251,7 +251,6 @@ body {
 
     text-align: left;
 }
-
 
 /* =========================================
    ORNAMENTAL SEPARATOR
@@ -555,7 +554,7 @@ body {
 
 .cross {
 
-    color: #b88932;
+    color: red;
 
     font-size: 20px;
 
@@ -978,9 +977,56 @@ body {
 
 
 .your-card-class {
-    border-top: 4px double yellow; /* Cyan double line at top */
-    border-bottom: 4px double #00cccc; /* Cyan double line at bottom */
+    border-top: 4px double yellow; 
+    border-bottom: 4px double #00cccc; 
     /* If you ONLY want it on the right side: */
     border-left: 4px double yellow; 
     padding: 20px; /* Adds space so text doesn't touch the lines */
+}
+
+.right-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.decorative-rose {
+    position: absolute;
+    width: 130px;
+    height: 100px;
+
+    right: 1px;
+    top: 5px;
+
+    z-index: 1;
+    pointer-events: none;
+
+    mix-blend-mode: multiply;
+}
+
+.right-panel {
+    position: relative;
+}
+
+.rose-bottom-right {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    right: 35px;
+    bottom: 30px;
+
+    z-index: 10;
+    pointer-events: none;
+    
+}
+
+.rose-bottom-right-a {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    right: 35px;
+    bottom: 55px;
+
+    z-index: 10;
+    pointer-events: none;
+    
 }
