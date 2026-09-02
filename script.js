@@ -22,15 +22,15 @@ async function shareCard() {
 
     const shareText =
         guestName
-            ? `ውድ ${guestName}፣ የዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ ፕሮግራም ላይ አንዲገኙ በክብር ጠርተንዎታል። ቀኑን እና ቦታውን ለማወቅ ሊንኩን ከፍተው ይመልከቱ። ቤተሰቦቻቸው።`
-            : `የዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ ጥሪ`;
+            ? `ውድ ${guestName}፣ የዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ መልስ ፕሮግራም ላይ አንዲገኙ በክብር ጠርተንዎታል። ቀኑን እና ቦታውን ለማወቅ ሊንኩን ከፍተው ይመልከቱ። ቤተሰቦቻቸው።`
+            : `የዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ መልስ`;
 
     if (navigator.share) {
 
         try {
 
             await navigator.share({
-                title: "የጋብቻ ጥሪ",
+                title:"የጋብቻ መልስ",
                 text: shareText,
                 url: window.location.href
             });
