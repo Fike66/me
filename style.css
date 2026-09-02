@@ -238,6 +238,20 @@ body {
     text-align: center;
 }
 
+.note-section {
+    position: relative;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 8px 5px;
+
+    margin: 0;
+
+    text-align: left;
+}
+
 
 /* =========================================
    ORNAMENTAL SEPARATOR
