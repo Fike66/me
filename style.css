@@ -1098,3 +1098,18 @@ a[href*="index2"] {
         padding: 2px 5px;
     }
 }
+
+/* =========================================
+   ATTENDANCE DISPLAY - CLEAN STYLE
+========================================= */
+
+#attendanceDisplay {
+    border-bottom: none !important;
+    padding: 0 5px !important;
+    display: inline-block;
+}
+
+/* Remove any dashed border that might appear */
+#attendanceDisplay[style*="dashed"] {
+    border-bottom: none !important;
+}
