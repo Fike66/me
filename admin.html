@@ -51,8 +51,8 @@
             transition: transform 0.2s;
         }
         .admin-btn:hover { transform: translateY(-2px); }
-        .btn-john { background: #047ef7; color: white; }
-        .btn-sol { background: #05f825; color: white; }
+        .btn-john { background: cyan; color: black; }
+        .btn-sol { background: #e705f8; color: black; }
         
         .panel {
             display: none;
@@ -85,6 +85,20 @@
             margin-bottom: 15px;
         }
         .generate-area input:focus {
+            border-color: #8B0000;
+            outline: none;
+        }
+        .generate-area select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: 'Georgia', serif;
+            margin-bottom: 15px;
+            background: white;
+        }
+        .generate-area select:focus {
             border-color: #8B0000;
             outline: none;
         }
@@ -341,7 +355,15 @@
                 
                 <div class="generate-area">
                     <label>👤 Guest Full Name:</label>
-                    <input type="text" id="guest-name-JOHN" placeholder="e.g., አቶ ብሩክ ደሳለኝ">
+                    <input type="text" id="guest-name-JOHN" placeholder="e.g., አቶ አበባው አበበ">
+                    
+                    <label>👥 የመገኛ ሁኔታ (Attendance Option):</label>
+                    <select id="attendance-JOHN">
+                        <option value="">-- አይምረጡ --</option>
+                        <option value="ከባለቤትዎ ጋር">ከባለቤትዎ ጋር</option>
+                        <option value="ከቤተሰብዎ ጋር">ከቤተሰብዎ ጋር</option>
+                    </select>
+                    
                     <button class="generate-btn" onclick="generateLink('JOHN')">🔗 Generate Invitation Link</button>
                     
                     <div id="new-link-JOHN" class="link-display" style="display:none; margin-top:15px;">
@@ -422,6 +444,14 @@
                 <div class="generate-area">
                     <label>👤 Guest Full Name:</label>
                     <input type="text" id="guest-name-SOL" placeholder="e.g., ወ/ሮ ሰላም አብዲ">
+                    
+                    <label>👥 የመገኛ ሁኔታ (Attendance Option):</label>
+                    <select id="attendance-SOL">
+                        <option value="">-- አይምረጡ --</option>
+                        <option value="ከባለቤትዎ ጋር">ከባለቤትዎ ጋር</option>
+                        <option value="ከቤተሰብዎ ጋር">ከቤተሰብዎ ጋር</option>
+                    </select>
+                    
                     <button class="generate-btn" onclick="generateLink('SOL')">🔗 Generate Invitation Link</button>
                     
                     <div id="new-link-SOL" class="link-display" style="display:none; margin-top:15px;">
@@ -527,18 +557,29 @@
                 return;
             }
             
+            // ===== GET ATTENDANCE OPTION (allow empty) =====
+            const attendanceSelect = document.getElementById(`attendance-${admin}`);
+            const attendance = attendanceSelect ? attendanceSelect.value : '';
+            
             const id = weddingData[admin].nextId++;
             const code = `${admin}-${id}-${Date.now().toString(36)}`;
             const encodedName = encodeURIComponent(guestName);
+            const encodedAttendance = encodeURIComponent(attendance);
             
             // Determine which HTML file to use
             const page = admin === 'JOHN' ? 'index2.html' : 'index.html';
-            const link = `https://fike66.github.io/me/${page}?code=${code}&name=${encodedName}`;
+            let link = `https://fike66.github.io/me/${page}?code=${code}&name=${encodedName}`;
+            
+            // Only add attendance parameter if it has a value
+            if (attendance) {
+                link += `&attendance=${encodedAttendance}`;
+            }
             
             weddingData[admin].links.push({
                 id: id,
                 code: code,
                 name: guestName,
+                attendance: attendance || '',
                 link: link,
                 used: false,
                 createdAt: new Date().toISOString()
@@ -551,7 +592,7 @@
             document.getElementById(`link-text-${admin}`).textContent = link;
             linkDisplay.style.display = 'block';
             
-            // ===== SHOW PREVIEW SECTION =====
+            // Show preview section
             const previewSection = document.getElementById(`preview-section-${admin}`);
             if (previewSection) {
                 previewSection.style.display = 'block';
@@ -572,7 +613,6 @@
         function previewInvitation(admin) {
             const linkText = document.getElementById(`link-text-${admin}`).textContent;
             if (linkText && linkText.startsWith('http')) {
-                // Open the invitation in a new tab
                 window.open(linkText, '_blank');
             } else {
                 alert('⚠️ Please generate a link first!');
@@ -664,7 +704,13 @@
                 return;
             }
             
-            container.innerHTML = links.slice().reverse().map(link => `
+            container.innerHTML = links.slice().reverse().map(link => {
+                // Only show attendance if it has a value
+                const attendanceDisplay = link.attendance ? 
+                    `<br><span style="font-size:0.85em; color:#8B0000; font-weight:bold;">👥 ${link.attendance}</span>` : 
+                    `<br><span style="font-size:0.85em; color:#999; font-style:italic;">👤 ብቻዎን</span>`;
+                
+                return `
                 <div class="link-item">
                     <div>
                         <span class="guest-name">${link.name}</span>
@@ -674,6 +720,7 @@
                         <span class="family-badge ${admin === 'JOHN' ? 'badge-john' : 'badge-sol'}">
                             ${admin}
                         </span>
+                        ${attendanceDisplay}
                         <br>
                         <span class="link-url">${link.link}</span>
                         <span style="font-size:0.8em; color:#999; display:block; margin-top:4px;">
@@ -684,7 +731,7 @@
                         <button class="revoke-btn" onclick="revokeLink('${admin}', '${link.code}')">✕ Revoke</button>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
         
         // Auto-open panel if admin is in URL
