@@ -3,10 +3,9 @@
 // ============================================
 
 // ============================================
-// 1. GUEST NAME FROM URL (NEW)
+// 1. GUEST NAME FROM URL
 // ============================================
 
-// Get guest name from URL parameter
 function getGuestNameFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('name');
@@ -16,14 +15,12 @@ function getGuestNameFromURL() {
     return null;
 }
 
-// Display guest name from URL
 function displayGuestNameFromURL() {
     const guestName = getGuestNameFromURL();
     const displayElement = document.getElementById('guestNameDisplay');
     const inputElement = document.getElementById('guestName');
     
     if (guestName && displayElement) {
-        // Show the name in the display element
         displayElement.textContent = guestName;
         displayElement.style.color = '#8B0000';
         displayElement.style.fontSize = '22px';
@@ -34,7 +31,6 @@ function displayGuestNameFromURL() {
         displayElement.style.borderBottom = '2px dashed #b88932';
         displayElement.style.display = 'inline-block';
         
-        // Also update the hidden input if needed
         if (inputElement) {
             inputElement.value = guestName;
         }
@@ -42,7 +38,6 @@ function displayGuestNameFromURL() {
         console.log('✅ Guest name loaded from URL:', guestName);
         return true;
     } else if (displayElement) {
-        // Show default message if no name
         displayElement.textContent = 'እንግዳችን';
         displayElement.style.color = '#704716';
         displayElement.style.fontSize = '18px';
@@ -54,13 +49,54 @@ function displayGuestNameFromURL() {
 }
 
 // ============================================
-// 2. ORIGINAL GUEST NAME INPUT (KEEP FOR ADMIN)
+// 2. ATTENDANCE OPTION FROM URL
+// ============================================
+
+function getAttendanceFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const attendance = urlParams.get('attendance');
+    if (attendance) {
+        return decodeURIComponent(attendance);
+    }
+    return null;
+}
+
+function displayAttendanceFromURL() {
+    const attendance = getAttendanceFromURL();
+    const displayElement = document.getElementById('attendanceDisplay');
+    
+    if (attendance && displayElement) {
+        displayElement.textContent = attendance;
+        displayElement.style.color = '#8B0000';
+        displayElement.style.fontWeight = 'bold';
+        displayElement.style.fontSize = '1.1em';
+        displayElement.style.borderBottom = 'none';
+        displayElement.style.padding = '0 5px';
+        displayElement.style.display = 'inline-block';
+        displayElement.style.minWidth = '80px';
+        displayElement.style.minHeight = '25px';
+        
+        console.log('✅ Attendance option loaded:', attendance);
+        return true;
+    } else if (displayElement) {
+        displayElement.textContent = '';
+        displayElement.style.borderBottom = 'none';
+        displayElement.style.padding = '0';
+        displayElement.style.minWidth = '0';
+        displayElement.style.minHeight = '0';
+        displayElement.style.display = 'inline';
+        console.log('ℹ️ No attendance option provided - single guest');
+    }
+    return false;
+}
+
+// ============================================
+// 3. ORIGINAL GUEST NAME INPUT (ADMIN)
 // ============================================
 
 const guestInput = document.getElementById("guestName");
 const guestDisplay = document.getElementById("guestDisplay");
 
-// Only attach input listener if elements exist
 if (guestInput && guestDisplay) {
     guestInput.addEventListener("input", () => {
         const name = guestInput.value.trim();
@@ -69,23 +105,20 @@ if (guestInput && guestDisplay) {
 }
 
 // ============================================
-// 3. REMOVE SHARE & ADMIN BUTTONS FROM GUESTS
+// 4. REMOVE SHARE & ADMIN BUTTONS
 // ============================================
 
 function removeUnauthorizedButtons() {
-    // Hide the entire card-actions div
     const actionsDiv = document.querySelector('.card-actions');
     if (actionsDiv) {
         actionsDiv.style.display = 'none';
     }
     
-    // Also remove any share buttons that might exist elsewhere
     document.querySelectorAll('.share-btn, .share-button, .social-share, .share-icons, [id*="share"]').forEach(el => {
         el.style.display = 'none';
         el.remove();
     });
     
-    // Remove any JOHN/SOL buttons
     document.querySelectorAll('button, a, div').forEach(el => {
         const text = el.textContent || '';
         if (text.includes('JOHN') || text.includes('SOL') || text.includes('index2')) {
@@ -96,10 +129,9 @@ function removeUnauthorizedButtons() {
 }
 
 // ============================================
-// 4. ORIGINAL FUNCTIONS - KEPT AS IS
+// 5. ORIGINAL FUNCTIONS
 // ============================================
 
-// SHARE CARD (Original - kept for admin use)
 async function shareCard() {
     const guestName = document.getElementById("guestName").value.trim();
     const shareText = guestName
@@ -121,12 +153,10 @@ async function shareCard() {
     }
 }
 
-// PRINT CARD (Original)
 function printCard() {
     window.print();
 }
 
-// SAVE PDF (Original)
 function savePDF() {
     const card = document.querySelector(".invitation");
     const options = {
@@ -154,17 +184,14 @@ function savePDF() {
 }
 
 // ============================================
-// 5. RUN ON PAGE LOAD
+// 6. RUN ON PAGE LOAD
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Display guest name from URL
     displayGuestNameFromURL();
-    
-    // 2. Remove all share and admin buttons (for guests)
+    displayAttendanceFromURL();
     removeUnauthorizedButtons();
     
-    // 3. Hide the input field (for guests)
     const inputField = document.getElementById('guestName');
     if (inputField) {
         inputField.style.display = 'none';
@@ -175,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
-// 6. WATCH FOR NEW BUTTONS
+// 7. WATCH FOR NEW BUTTONS
 // ============================================
 
 const observer = new MutationObserver(function() {
