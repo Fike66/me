@@ -275,7 +275,7 @@ body {
 }
 
 
-/* Don't put separator after final address */
+
 
 .address-section::after {
     display: none;
