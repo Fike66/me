@@ -86,7 +86,7 @@
 
             </header>
 
-            <!-- 1. GUEST NAME -->
+            <!-- 1. GUEST NAME - AUTOMATICALLY FILLED -->
 
             <section class="card-section guest-section">
 
@@ -94,16 +94,18 @@
                     ውድ እንግዳችን
                 </h2>
                 
-        <!--
-                <h2>
-              አቶ/ ወ/ሮ: __________________________________________________________
-                </h2>
-         -->
+                <!-- GUEST NAME DISPLAYS HERE AUTOMATICALLY -->
+                <div id="guestNameDisplay">
+                    <!-- Name will appear here from URL -->
+                </div>
+                
+                <!-- Hidden input field (kept for compatibility, hidden by CSS) -->
                 <input
                     type="text"
                     id="guestName"
                     placeholder="የእንግዳ ስም አስገባ፡ አቶ or ወ/ሮ"
-                    autocomplete="off">
+                    autocomplete="off"
+                    style="display: none;">
 
             </section>
 
@@ -196,7 +198,7 @@
            
         </section>
 
-         <img src="red-rose3.png" class="rose-bottom-right" alt="">
+         <img src="red-rose1.png" class="rose-bottom-right" alt="">
         </section>
 
         <footer style="text-align:center; background-color:gold; width:240%; position:relative;">
@@ -209,18 +211,9 @@
 
     </main>
 
-    <div class="card-actions">
-   <!--
-    <button onclick="printCard()">
-        🖨️ Print
-    </button>
-   -->
-
-    <button onclick="shareCard()">
-        📱 Share
-    </button>
-
-    <button><a href="index2.html">JOHN</a></button>
+    <!-- ===== BUTTONS REMOVED FOR GUESTS ===== -->
+    <div class="card-actions" style="display: none;">
+        <!-- All buttons removed -->
     </div>
 
 
