@@ -32,9 +32,9 @@
         }
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #0905fc;
             margin-bottom: 30px;
-            font-style: italic;
+            font-style: normal;
         }
         .admin-buttons {
             display: flex;
@@ -53,14 +53,14 @@
         }
         .admin-btn:hover { transform: translateY(-2px); }
         .btn-john { background: cyan; color: black; }
-        .btn-sol { background: #05f84a; color: black; }
+        .btn-sol { background: #fd0eed; color: black; }
         
         .panel {
             display: none;
             margin-top: 30px;
             padding: 20px;
             border-radius: 12px;
-            background: #f9f4f0;
+            background: #eee25d;
         }
         .panel.active { display: block; }
         
@@ -462,24 +462,37 @@
         <!-- JOHN's PANEL                                 -->
         <!-- ============================================ -->
         <div id="panel-JOHN" class="panel">
-            <h2 style="color:#2c3e50;">👨 የዮሀንስ ቤተሰብ - Admin</h2>
+            <h2 style="color:#880000;">👨 የዮሀንስ ቤተሰብ - Admin</h2>
             <div class="password-input">
                 <input type="password" id="password-JOHN" placeholder="Enter admin password">
                 <button onclick="authenticate('JOHN')">Unlock</button>
             </div>
             <div id="admin-content-JOHN" style="display:none;">
+
                 <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number" id="total-JOHN">0</div>
-                        <div class="stat-label">Total Links</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="used-JOHN">0</div>
-                        <div class="stat-label">Opened</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="active-JOHN">0</div>
-                        <div class="stat-label">Active</div>
+                 <div class="stat-item">
+                  <div class="stat-number" id="total-JOHN">0</div>
+                  <div class="stat-label">Total Links</div>
+                 </div>
+                  <div class="stat-item">
+                  <div class="stat-number" id="used-JOHN">0</div>
+                <div class="stat-label">Opened</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number" id="active-JOHN">0</div>
+                  <div class="stat-label">Active</div>
+                </div>
+                 <div class="stat-item">
+                    <button onclick="refreshStats('JOHN')" style="
+                      background: #3498db;
+                      color: white;
+                      border: none;
+                      padding: 8px 20px;
+                      border-radius: 8px;
+                      cursor: pointer;
+                      font-weight: bold;
+                      font-size: 0.9em;
+                      ">🔄 Refresh</button>
                     </div>
                 </div>
                 
@@ -581,17 +594,29 @@
             </div>
             <div id="admin-content-SOL" style="display:none;">
                 <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number" id="total-SOL">0</div>
-                        <div class="stat-label">Total Links</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="used-SOL">0</div>
-                        <div class="stat-label">Opened</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="active-SOL">0</div>
-                        <div class="stat-label">Active</div>
+                 <div class="stat-item">
+                  <div class="stat-number" id="total-JOHN">0</div>
+                  <div class="stat-label">Total Links</div>
+                 </div>
+                  <div class="stat-item">
+                  <div class="stat-number" id="used-JOHN">0</div>
+                <div class="stat-label">Opened</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number" id="active-JOHN">0</div>
+                  <div class="stat-label">Active</div>
+                </div>
+                 <div class="stat-item">
+                    <button onclick="refreshStats('JOHN')" style="
+                      background: #3498db;
+                      color: white;
+                      border: none;
+                      padding: 8px 20px;
+                      border-radius: 8px;
+                      cursor: pointer;
+                      font-weight: bold;
+                      font-size: 0.9em;
+                      ">🔄 Refresh</button>
                     </div>
                 </div>
                 
@@ -946,6 +971,18 @@
         const adminParam = urlParams.get('admin');
         if (adminParam && ['JOHN', 'SOL'].includes(adminParam)) {
             showAdminPanel(adminParam);
+        }
+
+        // ===== REFRESH STATS =====
+         function refreshStats(admin) {
+    // Reload data from localStorage
+        weddingData = JSON.parse(localStorage.getItem('weddingLinks')) || {
+        JOHN: { links: [], nextId: 1 },
+        SOL: { links: [], nextId: 1 }
+        };
+         updateStats(admin);
+         renderTable(admin);
+         alert('✅ Stats refreshed!');
         }
     </script>
 </body>
