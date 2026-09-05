@@ -35,6 +35,9 @@ function displayGuestNameFromURL() {
             inputElement.value = guestName;
         }
         
+        // ===== MARK LINK AS OPENED =====
+        markLinkAsOpened();
+        
         console.log('✅ Guest name loaded from URL:', guestName);
         return true;
     } else if (displayElement) {
@@ -49,7 +52,50 @@ function displayGuestNameFromURL() {
 }
 
 // ============================================
-// 2. ATTENDANCE OPTION FROM URL
+// 2. MARK LINK AS OPENED (NEW)
+// ============================================
+
+function markLinkAsOpened() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    
+    if (!code) {
+        console.log('ℹ️ No code found in URL, skipping mark');
+        return;
+    }
+    
+    // Load current data
+    let weddingData = JSON.parse(localStorage.getItem('weddingLinks')) || {
+        JOHN: { links: [], nextId: 1 },
+        SOL: { links: [], nextId: 1 }
+    };
+    
+    // Find and mark the link
+    let found = false;
+    for (const admin of ['JOHN', 'SOL']) {
+        const link = weddingData[admin].links.find(l => l.code === code);
+        if (link && !link.used) {
+            link.used = true;
+            link.openedAt = new Date().toISOString();
+            found = true;
+            console.log(`✅ Link marked as opened: ${code} for ${link.name}`);
+            break;
+        } else if (link && link.used) {
+            console.log(`ℹ️ Link already opened: ${code}`);
+            found = true;
+            break;
+        }
+    }
+    
+    if (found) {
+        localStorage.setItem('weddingLinks', JSON.stringify(weddingData));
+    } else {
+        console.log('⚠️ Link not found in data:', code);
+    }
+}
+
+// ============================================
+// 3. ATTENDANCE OPTION FROM URL
 // ============================================
 
 function getAttendanceFromURL() {
@@ -91,7 +137,7 @@ function displayAttendanceFromURL() {
 }
 
 // ============================================
-// 3. ORIGINAL GUEST NAME INPUT (ADMIN)
+// 4. ORIGINAL GUEST NAME INPUT (ADMIN)
 // ============================================
 
 const guestInput = document.getElementById("guestName");
@@ -105,7 +151,7 @@ if (guestInput && guestDisplay) {
 }
 
 // ============================================
-// 4. REMOVE SHARE & ADMIN BUTTONS
+// 5. REMOVE SHARE & ADMIN BUTTONS
 // ============================================
 
 function removeUnauthorizedButtons() {
@@ -129,7 +175,7 @@ function removeUnauthorizedButtons() {
 }
 
 // ============================================
-// 5. ORIGINAL FUNCTIONS
+// 6. ORIGINAL FUNCTIONS
 // ============================================
 
 async function shareCard() {
@@ -184,7 +230,7 @@ function savePDF() {
 }
 
 // ============================================
-// 6. RUN ON PAGE LOAD
+// 7. RUN ON PAGE LOAD
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -202,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
-// 7. WATCH FOR NEW BUTTONS
+// 8. WATCH FOR NEW BUTTONS
 // ============================================
 
 const observer = new MutationObserver(function() {
