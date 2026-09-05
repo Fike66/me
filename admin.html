@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +9,21 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
+            background: linear-gradient(135deg, #c19863 0%, #e8d5c4 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             padding: 20px;
         }
         .admin-container {
-            background: white;
+            background: rgb(177, 248, 91);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            max-width: 900px;
+            max-width: 1200px;
             width: 100%;
+            margin-top: 20px;
         }
         h1 {
             text-align: center;
@@ -52,7 +54,7 @@
         }
         .admin-btn:hover { transform: translateY(-2px); }
         .btn-john { background: cyan; color: black; }
-        .btn-sol { background: #e705f8; color: black; }
+        .btn-sol { background: #05f84a; color: black; }
         
         .panel {
             display: none;
@@ -113,7 +115,7 @@
             transition: background 0.3s;
             width: 100%;
         }
-        .generate-btn:hover { background: #219a52; }
+        .generate-btn:hover { background: #05f465; }
         
         .link-display {
             margin: 15px 0;
@@ -135,8 +137,8 @@
             display: none;
         }
         .preview-btn {
-            background: #8B0000;
-            color: white;
+            background: rgb(238, 16, 201);
+            color: rgb(219, 199, 199);
             border: none;
             padding: 12px 30px;
             border-radius: 8px;
@@ -146,11 +148,11 @@
             transition: background 0.3s;
             width: 100%;
         }
-        .preview-btn:hover { background: #6b0000; }
+        .preview-btn:hover { background: rgb(168, 4, 244); }
         .preview-hint {
             margin-top: 8px;
             font-size: 0.85em;
-            color: #666;
+            color: #e4c5c5;
             text-align: center;
         }
         
@@ -208,49 +210,109 @@
         .share-sms { background: #ff9800; }
         .share-sms:hover { background: #e68900; }
         
-        /* ===== LINKS LIST ===== */
-        .links-list {
+        /* ===== TABLE STYLES ===== */
+        .table-container {
             margin-top: 20px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .link-item {
+            overflow-x: auto;
             background: white;
-            padding: 12px 15px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border-left: 4px solid #8B0000;
+            border-radius: 12px;
+            padding: 5px;
         }
-        .link-item .guest-name {
-            font-weight: bold;
-            color: #8B0000;
+        
+        .guest-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Georgia', serif;
+            font-size: 0.9em;
         }
-        .link-item .link-url {
-            font-size: 0.85em;
-            color: #666;
-            word-break: break-all;
-            display: block;
-            margin: 5px 0;
+        
+        .guest-table thead {
+            background: linear-gradient(135deg, #a823a8, #7109f8);
+            color: white;
         }
-        .link-item .status {
-            font-size: 0.85em;
+        
+        .guest-table th {
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+        }
+        
+        .guest-table td {
+            padding: 12px 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        
+        .guest-table tbody tr:hover {
+            background: #fdf6f0;
+        }
+        
+        .guest-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Column widths */
+        .col-roll { width: 8%; text-align: center; font-weight: bold; color: #eddede; }
+        .col-name { width: 20%; font-weight: 600; color: #e7d8d2; }
+        .col-attendance { width: 18%; }
+        .col-link { width: 30%; }
+        .col-status { width: 12%; text-align: center; }
+        .col-actions { width: 12%; text-align: center; }
+        
+        .attendance-badge {
+            display: inline-block;
             padding: 3px 12px;
             border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        .attendance-with { background: #d4edda; color: #155724; }
+        .attendance-single { background: #f8d7da; color: #721c24; }
+        .attendance-empty { background: #e2e3e5; color: #383d41; }
+        
+        .status-badge {
             display: inline-block;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
         }
         .status-active { background: #2ecc71; color: white; }
         .status-used { background: #e67e22; color: white; }
         
-        .revoke-btn {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 4px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8em;
+        .link-cell {
+            font-size: 0.75em;
+            color: #2c3e50;
+            word-break: break-all;
+            max-width: 200px;
+        }
+        .link-cell a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .link-cell a:hover {
+            color: #8B0000;
+            text-decoration: underline;
         }
         
+        .action-btn {
+            padding: 5px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8em;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .action-btn:hover { transform: scale(1.05); }
+        .btn-revoke { background: #e74c3c; color: white; }
+        .btn-revoke:hover { background: #c0392b; }
+        .btn-copy-link { background: #3498db; color: white; margin-right: 4px; }
+        .btn-copy-link:hover { background: #2980b9; }
+        
+        /* ===== PASSWORD INPUT ===== */
         .password-input {
             margin: 20px 0;
             text-align: center;
@@ -264,7 +326,7 @@
         }
         .password-input button {
             padding: 10px 25px;
-            background: #2c3e50;
+            background: red;
             color: white;
             border: none;
             border-radius: 8px;
@@ -295,13 +357,53 @@
         
         .family-badge {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.8em;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.7em;
             font-weight: bold;
         }
         .badge-john { background: #2c3e50; color: white; }
         .badge-sol { background: #8B0000; color: white; }
+        
+        .no-guests {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .table-header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0 10px 0;
+        }
+        .table-header-actions h3 {
+            color: #333;
+        }
+        .table-count {
+            font-size: 0.9em;
+            color: #666;
+            background: #f0f0f0;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .guest-table {
+                font-size: 0.8em;
+            }
+            .guest-table th, .guest-table td {
+                padding: 8px 6px;
+            }
+            .col-roll { width: 6%; }
+            .col-name { width: 15%; }
+            .col-attendance { width: 15%; }
+            .col-link { width: 25%; }
+            .col-status { width: 10%; }
+            .col-actions { width: 15%; }
+        }
         
         @media (max-width: 600px) {
             .share-buttons {
@@ -318,6 +420,31 @@
             .admin-btn {
                 width: 100%;
                 max-width: 300px;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .admin-container {
+                padding: 20px 15px;
+            }
+            .guest-table {
+                font-size: 0.7em;
+            }
+            .guest-table th, .guest-table td {
+                padding: 5px 4px;
+            }
+            .action-btn {
+                padding: 3px 8px;
+                font-size: 0.7em;
+            }
+            .link-cell {
+                max-width: 80px;
+            }
+            .table-header-actions {
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
             }
         }
     </style>
@@ -351,11 +478,15 @@
                         <div class="stat-number" id="used-JOHN">0</div>
                         <div class="stat-label">Opened</div>
                     </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="active-JOHN">0</div>
+                        <div class="stat-label">Active</div>
+                    </div>
                 </div>
                 
                 <div class="generate-area">
                     <label>👤 Guest Full Name:</label>
-                    <input type="text" id="guest-name-JOHN" placeholder="e.g., አቶ አበባው አበበ">
+                    <input type="text" id="guest-name-JOHN" placeholder="e.g., አቶ ብሩክ ደሳለኝ">
                     
                     <label>👥 የመገኛ ሁኔታ (Attendance Option):</label>
                     <select id="attendance-JOHN">
@@ -413,9 +544,29 @@
                     </div>
                 </div>
                 
-                <div class="links-list" id="links-list-JOHN">
-                    <h4>📋 Generated Links</h4>
-                    <div id="links-container-JOHN"></div>
+                <!-- ===== TABLE VIEW ===== -->
+                <div class="table-container" id="table-container-JOHN">
+                    <div class="table-header-actions">
+                        <h3>📋 Guest List</h3>
+                        <span class="table-count" id="count-JOHN">0 guests</span>
+                    </div>
+                    <table class="guest-table" id="guest-table-JOHN">
+                        <thead>
+                            <tr>
+                                <th class="col-roll">#</th>
+                                <th class="col-name">Guest Name</th>
+                                <th class="col-attendance">Attendance</th>
+                                <th class="col-link">Invitation Link</th>
+                                <th class="col-status">Status</th>
+                                <th class="col-actions">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body-JOHN">
+                            <tr>
+                                <td colspan="6" class="no-guests">No guests added yet. Generate your first invitation above!</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -438,6 +589,10 @@
                     <div class="stat-item">
                         <div class="stat-number" id="used-SOL">0</div>
                         <div class="stat-label">Opened</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="active-SOL">0</div>
+                        <div class="stat-label">Active</div>
                     </div>
                 </div>
                 
@@ -501,9 +656,29 @@
                     </div>
                 </div>
                 
-                <div class="links-list" id="links-list-SOL">
-                    <h4>📋 Generated Links</h4>
-                    <div id="links-container-SOL"></div>
+                <!-- ===== TABLE VIEW ===== -->
+                <div class="table-container" id="table-container-SOL">
+                    <div class="table-header-actions">
+                        <h3>📋 Guest List</h3>
+                        <span class="table-count" id="count-SOL">0 guests</span>
+                    </div>
+                    <table class="guest-table" id="guest-table-SOL">
+                        <thead>
+                            <tr>
+                                <th class="col-roll">#</th>
+                                <th class="col-name">Guest Name</th>
+                                <th class="col-attendance">Attendance</th>
+                                <th class="col-link">Invitation Link</th>
+                                <th class="col-status">Status</th>
+                                <th class="col-actions">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body-SOL">
+                            <tr>
+                                <td colspan="6" class="no-guests">No guests added yet. Generate your first invitation above!</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -511,7 +686,7 @@
     
     <script>
         // ============================================
-        // ADMIN PANEL - COMPLETE
+        // ADMIN PANEL - COMPLETE WITH TABLE VIEW
         // ============================================
         
         // ===== CONFIGURATION =====
@@ -544,7 +719,7 @@
             if (password === ADMIN_PASSWORDS[admin]) {
                 document.getElementById(`admin-content-${admin}`).style.display = 'block';
                 updateStats(admin);
-                renderLinks(admin);
+                renderTable(admin);
             } else {
                 alert('❌ Wrong password! Please contact the couple.');
             }
@@ -557,7 +732,6 @@
                 return;
             }
             
-            // ===== GET ATTENDANCE OPTION (allow empty) =====
             const attendanceSelect = document.getElementById(`attendance-${admin}`);
             const attendance = attendanceSelect ? attendanceSelect.value : '';
             
@@ -566,11 +740,9 @@
             const encodedName = encodeURIComponent(guestName);
             const encodedAttendance = encodeURIComponent(attendance);
             
-            // Determine which HTML file to use
             const page = admin === 'JOHN' ? 'index2.html' : 'index.html';
             let link = `https://fike66.github.io/me/${page}?code=${code}&name=${encodedName}`;
             
-            // Only add attendance parameter if it has a value
             if (attendance) {
                 link += `&attendance=${encodedAttendance}`;
             }
@@ -587,25 +759,20 @@
             
             saveData();
             
-            // Display the new link
             const linkDisplay = document.getElementById(`new-link-${admin}`);
             document.getElementById(`link-text-${admin}`).textContent = link;
             linkDisplay.style.display = 'block';
             
-            // Show preview section
             const previewSection = document.getElementById(`preview-section-${admin}`);
             if (previewSection) {
                 previewSection.style.display = 'block';
             }
             
             updateStats(admin);
-            renderLinks(admin);
+            renderTable(admin);
             
-            // Clear the name field for next entry
             document.getElementById(`guest-name-${admin}`).value = '';
             document.getElementById(`guest-name-${admin}`).focus();
-            
-            // Scroll to the link
             linkDisplay.scrollIntoView({ behavior: 'smooth' });
         }
         
@@ -680,58 +847,99 @@
             });
         }
         
+        function copyLinkFromTable(admin, code) {
+            const links = weddingData[admin].links;
+            const link = links.find(l => l.code === code);
+            if (link) {
+                navigator.clipboard.writeText(link.link).then(() => {
+                    alert('✅ Link copied to clipboard!');
+                }).catch(() => {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = link.link;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    alert('✅ Link copied!');
+                });
+            }
+        }
+        
         function revokeLink(admin, code) {
             if (!confirm('⚠️ Are you sure you want to revoke this link? The guest will no longer be able to access the invitation.')) return;
             
             weddingData[admin].links = weddingData[admin].links.filter(l => l.code !== code);
             saveData();
             updateStats(admin);
-            renderLinks(admin);
+            renderTable(admin);
         }
         
         function updateStats(admin) {
             const links = weddingData[admin].links;
             document.getElementById(`total-${admin}`).textContent = links.length;
             document.getElementById(`used-${admin}`).textContent = links.filter(l => l.used).length;
+            document.getElementById(`active-${admin}`).textContent = links.filter(l => !l.used).length;
+            document.getElementById(`count-${admin}`).textContent = `${links.length} guests`;
         }
         
-        function renderLinks(admin) {
-            const container = document.getElementById(`links-container-${admin}`);
+        // ===== RENDER TABLE =====
+        function renderTable(admin) {
+            const tbody = document.getElementById(`table-body-${admin}`);
             const links = weddingData[admin].links;
             
             if (links.length === 0) {
-                container.innerHTML = '<p style="color:#999; text-align:center; padding:20px;">No links generated yet.</p>';
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="no-guests">No guests added yet. Generate your first invitation above!</td>
+                    </tr>
+                `;
                 return;
             }
             
-            container.innerHTML = links.slice().reverse().map(link => {
-                // Only show attendance if it has a value
-                const attendanceDisplay = link.attendance ? 
-                    `<br><span style="font-size:0.85em; color:#8B0000; font-weight:bold;">👥 ${link.attendance}</span>` : 
-                    `<br><span style="font-size:0.85em; color:#999; font-style:italic;">👤 ብቻዎን</span>`;
+            // Sort by ID (newest first)
+            const sortedLinks = [...links].reverse();
+            
+            tbody.innerHTML = sortedLinks.map((link, index) => {
+                // Roll number
+                const rollNumber = sortedLinks.length - index;
+                
+                // Attendance badge
+                let attendanceBadge = '';
+                if (link.attendance) {
+                    attendanceBadge = `<span class="attendance-badge attendance-with">👥 ${link.attendance}</span>`;
+                } else {
+                    attendanceBadge = `<span class="attendance-badge attendance-single">👤 ብቻዎን</span>`;
+                }
+                
+                // Status badge
+                const statusBadge = link.used 
+                    ? `<span class="status-badge status-used">✅ Opened</span>`
+                    : `<span class="status-badge status-active">🟢 Active</span>`;
+                
+                // Link with copy button
+                const linkDisplay = `
+                    <span class="link-cell">
+                        <a href="${link.link}" target="_blank">${link.link.substring(0, 40)}...</a>
+                    </span>
+                `;
+                
+                // Actions
+                const actions = `
+                    <button class="action-btn btn-copy-link" onclick="copyLinkFromTable('${admin}', '${link.code}')" title="Copy link">📋</button>
+                    <button class="action-btn btn-revoke" onclick="revokeLink('${admin}', '${link.code}')" title="Revoke link">✕</button>
+                `;
                 
                 return `
-                <div class="link-item">
-                    <div>
-                        <span class="guest-name">${link.name}</span>
-                        <span class="status ${link.used ? 'status-used' : 'status-active'}">
-                            ${link.used ? '✅ Opened' : '🟢 Active'}
-                        </span>
-                        <span class="family-badge ${admin === 'JOHN' ? 'badge-john' : 'badge-sol'}">
-                            ${admin}
-                        </span>
-                        ${attendanceDisplay}
-                        <br>
-                        <span class="link-url">${link.link}</span>
-                        <span style="font-size:0.8em; color:#999; display:block; margin-top:4px;">
-                            ${new Date(link.createdAt).toLocaleString()}
-                        </span>
-                    </div>
-                    <div style="margin-top:8px;">
-                        <button class="revoke-btn" onclick="revokeLink('${admin}', '${link.code}')">✕ Revoke</button>
-                    </div>
-                </div>
-            `}).join('');
+                    <tr>
+                        <td class="col-roll">${rollNumber}</td>
+                        <td class="col-name">${link.name}</td>
+                        <td class="col-attendance">${attendanceBadge}</td>
+                        <td class="col-link">${linkDisplay}</td>
+                        <td class="col-status">${statusBadge}</td>
+                        <td class="col-actions">${actions}</td>
+                    </tr>
+                `;
+            }).join('');
         }
         
         // Auto-open panel if admin is in URL
