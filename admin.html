@@ -721,14 +721,14 @@
                 updateStats(admin);
                 renderTable(admin);
             } else {
-                alert('❌ የይለፍ ቃሉን ተሳስተሀል! እባክህ ከረሳህም ዌብሳይቱን የሰራውን ሰው (ፍቃዱ ወልዴን) ይጠይቁ። ደጋግመው አይሞክሩት!.');
+                alert('❌ የይለፍ ቃሉን ተሳስተዋል! እባክዎ ለማስታወስ ከተቸገሩ ዌብሳይቱን የሰራውን ሰው (ፍቃዱ ወልዴን) ይጠይቁ። ደጋግመው አይሞክሩት!');
             }
         }
         
         function generateLink(admin) {
             const guestName = document.getElementById(`guest-name-${admin}`).value.trim();
             if (!guestName) {
-                alert('⚠️ እባክህ መጀመሪያ የተጋባዡን ስም አስገባ!');
+                alert('⚠️ እባክዎ መጀመሪያ የተጋባዡን ስም ያስገቡ!');
                 return;
             }
             
@@ -791,7 +791,7 @@
             const linkText = document.getElementById(`link-text-${admin}`).textContent;
             const guestName = getGuestNameFromLink(admin);
             
-            const message = `ውድ ${guestName}፣ \nየዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ ፕሮግራም ላይ አንዲገኙ በክብር ጠርተንዎታል። \nቀኑን እና ቦታውን ለማወቅ ሊንኩን ከፍተው ይመልከቱ። \nከቤተሰቦቻቸው። \n\n${linkText}`;
+            const message = `ውድ ${guestName}፣ \nየዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ መልስ ፕሮግራም ላይ አንዲገኙ በክብር ጠርተንዎታል። \nቀኑን እና ቦታውን ለማወቅ ሊንኩን ከፍተው ይመልከቱ። \nከቤተሰቦቻቸው። \n\n${linkText}`;
             
             const encodedMessage = encodeURIComponent(message);
             let shareUrl = '';
