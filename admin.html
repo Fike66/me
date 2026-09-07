@@ -446,6 +446,276 @@
                 align-items: flex-start;
             }
         }
+
+        /* =========================================
+   MOBILE RESPONSIVE - ADMIN PANEL
+   ========================================= */
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 20px 15px !important;
+        border-radius: 15px !important;
+    }
+    
+    .admin-container h1 {
+        font-size: 1.5em !important;
+    }
+    
+    .admin-buttons {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    
+    .admin-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px !important;
+        font-size: 1em !important;
+    }
+    
+    .panel {
+        padding: 15px 10px !important;
+    }
+    
+    .stats {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        padding: 12px !important;
+    }
+    
+    .stat-item {
+        flex: 1 1 40% !important;
+        min-width: 80px !important;
+    }
+    
+    .stat-number {
+        font-size: 1.5em !important;
+    }
+    
+    .stat-label {
+        font-size: 0.75em !important;
+    }
+    
+    .generate-area {
+        padding: 15px !important;
+    }
+    
+    .generate-area label {
+        font-size: 0.9em !important;
+    }
+    
+    .generate-area input,
+    .generate-area select {
+        padding: 10px !important;
+        font-size: 0.9em !important;
+    }
+    
+    .generate-btn {
+        font-size: 1em !important;
+        padding: 10px !important;
+    }
+    
+    .share-buttons {
+        flex-direction: column !important;
+    }
+    
+    .share-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px !important;
+        font-size: 0.85em !important;
+    }
+    
+    .share-btn svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    /* Table */
+    .table-container {
+        padding: 0 !important;
+        overflow-x: auto !important;
+    }
+    
+    .guest-table {
+        font-size: 0.7em !important;
+        min-width: 500px !important;
+    }
+    
+    .guest-table th,
+    .guest-table td {
+        padding: 6px 4px !important;
+    }
+    
+    .guest-table th {
+        font-size: 0.7em !important;
+    }
+    
+    .col-roll { width: 8% !important; }
+    .col-name { width: 18% !important; }
+    .col-attendance { width: 18% !important; }
+    .col-link { width: 25% !important; }
+    .col-status { width: 12% !important; }
+    .col-actions { width: 15% !important; }
+    
+    .link-cell {
+        font-size: 0.65em !important;
+        max-width: 80px !important;
+    }
+    
+    .attendance-badge,
+    .status-badge {
+        font-size: 0.65em !important;
+        padding: 2px 6px !important;
+    }
+    
+    .action-btn {
+        padding: 3px 6px !important;
+        font-size: 0.7em !important;
+    }
+    
+    .table-header-actions {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+    }
+    
+    .table-header-actions h3 {
+        font-size: 1em !important;
+    }
+    
+    .table-count {
+        font-size: 0.8em !important;
+        padding: 2px 10px !important;
+    }
+    
+    .no-guests {
+        font-size: 0.8em !important;
+        padding: 20px !important;
+    }
+    
+    .preview-btn {
+        font-size: 1em !important;
+        padding: 10px !important;
+    }
+    
+    .preview-hint {
+        font-size: 0.75em !important;
+    }
+    
+    .password-input input {
+        width: 160px !important;
+        font-size: 0.9em !important;
+    }
+    
+    .password-input button {
+        font-size: 0.9em !important;
+        padding: 8px 16px !important;
+    }
+    
+    .link-display {
+        font-size: 0.85em !important;
+        padding: 10px !important;
+    }
+    
+    .link-display .link-url {
+        font-size: 0.75em !important;
+    }
+}
+
+/* =========================================
+   VERY SMALL MOBILE (under 480px)
+   ========================================= */
+
+@media (max-width: 480px) {
+    .admin-container {
+        padding: 12px 10px !important;
+    }
+    
+    .admin-container h1 {
+        font-size: 1.2em !important;
+    }
+    
+    .subtitle {
+        font-size: 0.8em !important;
+    }
+    
+    .stats {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 4px !important;
+    }
+    
+    .stat-item {
+        flex: 1 1 100% !important;
+        text-align: center !important;
+        padding: 4px 0 !important;
+    }
+    
+    .stat-number {
+        font-size: 1.2em !important;
+    }
+    
+    .guest-table {
+        font-size: 0.6em !important;
+        min-width: 400px !important;
+    }
+    
+    .guest-table th,
+    .guest-table td {
+        padding: 4px 3px !important;
+    }
+    
+    .link-cell {
+        font-size: 0.55em !important;
+        max-width: 50px !important;
+    }
+    
+    .action-btn {
+        padding: 2px 4px !important;
+        font-size: 0.6em !important;
+    }
+    
+    .generate-area {
+        padding: 10px !important;
+    }
+    
+    .generate-area label {
+        font-size: 0.8em !important;
+    }
+    
+    .generate-area input,
+    .generate-area select {
+        padding: 8px !important;
+        font-size: 0.8em !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .generate-btn {
+        font-size: 0.85em !important;
+        padding: 8px !important;
+    }
+    
+    .share-btn {
+        font-size: 0.75em !important;
+        padding: 8px !important;
+    }
+    
+    .preview-btn {
+        font-size: 0.85em !important;
+        padding: 8px !important;
+    }
+    
+    .password-input input {
+        width: 140px !important;
+        font-size: 0.8em !important;
+    }
+    
+    .password-input button {
+        font-size: 0.8em !important;
+        padding: 6px 12px !important;
+    }
+}
     </style>
 </head>
 <body>
