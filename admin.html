@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +33,9 @@
         }
         .subtitle {
             text-align: center;
-            color: #0905fc;
+            color: #0310f9;
             margin-bottom: 30px;
-            font-style: normal;
+            font-style: oblique;
         }
         .admin-buttons {
             display: flex;
@@ -60,7 +61,7 @@
             margin-top: 30px;
             padding: 20px;
             border-radius: 12px;
-            background: #eee25d;
+            background: #f9f4f0;
         }
         .panel.active { display: block; }
         
@@ -717,7 +718,7 @@
     }
 }
 
-    .footer {
+.footer {
             background-color: rgb(81, 5, 174);
             color: white;
             text-align: center;
@@ -727,12 +728,16 @@
             font-size: 0.9rem;
             font-weight: 100;
         }
+
+
+
     </style>
 </head>
 <body>
     <div class="admin-container">
         <h1>💍 Wedding Invitation Admin</h1>
-        <p class="subtitle">ለእንግዶች የግብዣ ካርድ እና ማገናኛ ሊንኮችን መፍጠሪያ እና መላኪያ ዳሽቦርድ</p>
+        <p class="subtitle">Generate personalized invitation links for your guests
+            ለተጋባዥ እንግዶች የግብዣ ካርድ እና ማገናኛ ሊንኮችን መፍጠሪያና መላኪያ ዳሽቦርድ</p>
         
         <div class="admin-buttons">
             <button class="admin-btn btn-john" onclick="showAdminPanel('JOHN')">👨 የዮሀንስ ቤተሰብ</button>
@@ -743,37 +748,24 @@
         <!-- JOHN's PANEL                                 -->
         <!-- ============================================ -->
         <div id="panel-JOHN" class="panel">
-            <h2 style="color:#880000;">👨 የዮሀንስ ቤተሰብ - Admin</h2>
+            <h2 style="color:#2c3e50;">👨 የዮሀንስ ቤተሰብ - Admin</h2>
             <div class="password-input">
                 <input type="password" id="password-JOHN" placeholder="Enter admin password">
                 <button onclick="authenticate('JOHN')">Unlock</button>
             </div>
             <div id="admin-content-JOHN" style="display:none;">
-
                 <div class="stats">
-                 <div class="stat-item">
-                  <div class="stat-number" id="total-JOHN">0</div>
-                  <div class="stat-label">Total Links</div>
-                 </div>
-                  <div class="stat-item">
-                  <div class="stat-number" id="used-JOHN">0</div>
-                <div class="stat-label">Opened</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number" id="active-JOHN">0</div>
-                  <div class="stat-label">Active</div>
-                </div>
-                 <div class="stat-item">
-                    <button onclick="refreshStats('JOHN')" style="
-                      background: #3498db;
-                      color: white;
-                      border: none;
-                      padding: 8px 20px;
-                      border-radius: 8px;
-                      cursor: pointer;
-                      font-weight: bold;
-                      font-size: 0.9em;
-                      ">🔄 Refresh</button>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-JOHN">0</div>
+                        <div class="stat-label">Total Links</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="used-JOHN">0</div>
+                        <div class="stat-label">Opened</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="active-JOHN">0</div>
+                        <div class="stat-label">Active</div>
                     </div>
                 </div>
                 
@@ -875,29 +867,17 @@
             </div>
             <div id="admin-content-SOL" style="display:none;">
                 <div class="stats">
-                 <div class="stat-item">
-                  <div class="stat-number" id="total-JOHN">0</div>
-                  <div class="stat-label">Total Links</div>
-                 </div>
-                  <div class="stat-item">
-                  <div class="stat-number" id="used-JOHN">0</div>
-                <div class="stat-label">Opened</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number" id="active-JOHN">0</div>
-                  <div class="stat-label">Active</div>
-                </div>
-                 <div class="stat-item">
-                    <button onclick="refreshStats('JOHN')" style="
-                      background: #3498db;
-                      color: white;
-                      border: none;
-                      padding: 8px 20px;
-                      border-radius: 8px;
-                      cursor: pointer;
-                      font-weight: bold;
-                      font-size: 0.9em;
-                      ">🔄 Refresh</button>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-SOL">0</div>
+                        <div class="stat-label">Total Links</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="used-SOL">0</div>
+                        <div class="stat-label">Opened</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="active-SOL">0</div>
+                        <div class="stat-label">Active</div>
                     </div>
                 </div>
                 
@@ -987,12 +967,14 @@
                 </div>
             </div>
         </div>
-        <footer class="footer">
+
+      <footer class="footer">
             <p>
                 &copy;<span> Fekadu Wolde</span>:
                 <i class="fas fa-code mr-1"></i> Physics Teacher | Web Developer | 2026 Ethiopia.
             </p>
       </footer>
+
     </div>
     
     <script>
@@ -1032,7 +1014,7 @@
                 updateStats(admin);
                 renderTable(admin);
             } else {
-                alert('❌ የይለፍ ቃሉን ተሳስተዋል! እባክዎ ለማስታወስ ከተቸገሩ ዌብሳይቱን የሰራውን ሰው (ፍቃዱ ወልዴን) ይጠይቁ። ደጋግመው አይሞክሩት!');
+                alert('❌ የይለፍ ቃሉን ተሳስተዋል! እባክህ ለማስታወስ ከተቸገሩ ዌብሳይቱን የሰራውን ሰው (ፍቃዱ ወልዴን) ይጠይቁ። ደጋግመው አይሞክሩት!');
             }
         }
         
@@ -1258,18 +1240,6 @@
         const adminParam = urlParams.get('admin');
         if (adminParam && ['JOHN', 'SOL'].includes(adminParam)) {
             showAdminPanel(adminParam);
-        }
-
-        // ===== REFRESH STATS =====
-         function refreshStats(admin) {
-    // Reload data from localStorage
-        weddingData = JSON.parse(localStorage.getItem('weddingLinks')) || {
-        JOHN: { links: [], nextId: 1 },
-        SOL: { links: [], nextId: 1 }
-        };
-         updateStats(admin);
-         renderTable(admin);
-         alert('✅ Stats refreshed!');
         }
     </script>
 </body>
