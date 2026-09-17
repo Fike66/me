@@ -718,6 +718,303 @@
     }
 }
 
+
+/* =========================================
+   COUPLE PHOTO GALLERY
+========================================= */
+
+.couple-gallery-section {
+    margin: 25px 0 35px 0;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, #f9fdf0, gold, #fdf6f0);
+    border-radius: 20px;
+    border: 2px solid #9273d4;
+    box-shadow: 0 8px 25px rgba(184, 137, 50, 0.12);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corner flowers */
+.couple-gallery-section::before {
+    content: "❧";
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 28px;
+    color: rgba(184, 137, 50, 0.4);
+    transform: rotate(-10deg);
+    pointer-events: none;
+}
+
+.couple-gallery-section::after {
+    content: "❧";
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-size: 28px;
+    color: rgba(184, 137, 50, 0.4);
+    transform: rotate(170deg);
+    pointer-events: none;
+}
+
+/* ===== GALLERY TITLE ===== */
+.gallery-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.gallery-title h2 {
+    font-family: 'Noto Sans Ethiopic', 'Georgia', serif;
+    font-size: 1.2em;
+    color: #8B0000;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.title-line {
+    height: 2px;
+    width: 50px;
+    background: linear-gradient(90deg, transparent, #d4a373, transparent);
+    flex: 1;
+    max-width: 120px;
+}
+
+/* ===== FEATURED PHOTO ===== */
+.featured-photo {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.featured-frame {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #d4a373;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 0 0 8px rgba(184, 137, 50, 0.1);
+    background: #f5e6d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.featured-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 12px 35px rgba(0, 0, 0, 0.2),
+        0 0 0 10px rgba(184, 137, 50, 0.15);
+}
+
+.featured-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.featured-frame .initials-large {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #8B0000;
+    font-family: 'Georgia', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* ===== COUPLE NAMES ===== */
+.couple-names-preview {
+    font-family: 'Georgia', 'Noto Sans Ethiopic', serif;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #8B0000;
+    margin: 15px 0 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.couple-names-preview .heart {
+    font-size: 1.1em;
+    color: #e74c3c;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    50% { transform: scale(1.05); }
+    75% { transform: scale(1.15); }
+}
+
+/* ===== WEDDING DATE ===== */
+.wedding-date-preview {
+    font-family: 'Noto Sans Ethiopic', 'Georgia', serif;
+    font-size: 1em;
+    color: #5a3e2b;
+    margin: 8px 0 20px 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ===== PHOTO GALLERY GRID ===== */
+.photo-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 7px;
+    margin: 20px 0 15px 0;
+    padding: 0 10px;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    border: 3px solid #d4a373;
+    overflow: hidden;
+    background: #f5e6d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(184, 137, 50, 0.15);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(184, 137, 50, 0.3);
+    border-color: #8B0000;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item .initials-small {
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== GALLERY DIVIDER ===== */
+.gallery-divider {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #d4a373;
+    letter-spacing: 6px;
+    opacity: 0.8;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE - GALLERY
+========================================= */
+
+@media (max-width: 900px) {
+    .photo-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .featured-frame {
+        width: 170px;
+        height: 170px;
+    }
+    
+    .couple-names-preview {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .couple-gallery-section {
+        padding: 20px 12px;
+        margin: 20px 0 25px 0;
+    }
+    
+    .featured-frame {
+        width: 140px;
+        height: 140px;
+        border-width: 4px;
+    }
+    
+    .featured-frame .initials-large {
+        font-size: 1.8em;
+    }
+    
+    .gallery-title h2 {
+        font-size: 1em;
+    }
+    
+    .title-line {
+        max-width: 60px;
+    }
+    
+    .couple-names-preview {
+        font-size: 1.05em;
+        gap: 8px;
+    }
+    
+    .wedding-date-preview {
+        font-size: 0.9em;
+    }
+    
+    .photo-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .gallery-item {
+        border-width: 2px;
+        border-radius: 8px;
+    }
+    
+    .gallery-item .initials-small {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 400px) {
+    .featured-frame {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .couple-names-preview {
+        font-size: 0.95em;
+        gap: 5px;
+    }
+    
+    .photo-gallery-grid {
+        gap: 6px;
+    }
+    
+    .gallery-item .initials-small {
+        font-size: 1em;
+    }
+    
+    .gallery-divider {
+        font-size: 0.8em;
+        letter-spacing: 3px;
+    }
+}
+
 .footer {
             background-color: white;
             color: rgb(81, 5, 174);
@@ -968,14 +1265,77 @@
             </div>
         </div>
 
+        
+        <!-- 👇 GALLERY APPEARS HERE — Below both admin panels 👇 -->
+        <div class="couple-gallery-section">
+            <div class="gallery-title">
+                <span class="title-line"></span>
+                <h2>💑 Couple's Photo Gallery</h2>
+                <span class="title-line"></span>
+            </div>
+            
+            <div class="featured-photo">
+                <div class="featured-frame">
+                    <img src="seljo1.png" alt="Yohannes and Selam"
+                         onerror="this.parentElement.innerHTML='<span class=\'initials-large\'>ዮ ❤️ ሰ</span>'">
+                </div>
+            </div>
+            
+            <p class="couple-names-preview">
+                <span>ዮሐንስ</span>
+                <span class="heart">❤️</span>
+                <span>ሰላም</span>
+            </p>
+            
+            <p class="wedding-date-preview">
+                📅 2019 ዓ.ም
+            </p>
+            
+            <div class="photo-gallery-grid">
+                <div class="gallery-item"><img src="gal/sol01.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol2.jpeg" alt="Photo 2" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💕</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol4.jpeg" alt="Photo 3" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💐</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol5.jpeg" alt="Photo 4" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌸</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol14.jpeg" alt="Photo 5" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💒</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol8.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                
+                <div class="gallery-item"><img src="gal/sol10.jpeg" alt="Photo 2" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💕</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol11.jpeg" alt="Photo 3" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💐</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol12.jpeg" alt="Photo 4" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌸</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol6.jpeg" alt="Photo 5" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💒</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol15.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol16.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                
+                <div class="gallery-item"><img src="photo6.jpg" alt="Photo 6" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>✨</span>'"></div>
+                <div class="gallery-item"><img src="photo1.jpg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                <div class="gallery-item"><img src="photo2.jpg" alt="Photo 2" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💕</span>'"></div>
+                <div class="gallery-item"><img src="photo3.jpg" alt="Photo 3" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💐</span>'"></div>
+                <div class="gallery-item"><img src="photo4.jpg" alt="Photo 4" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌸</span>'"></div>
+                <div class="gallery-item"><img src="photo6.jpg" alt="Photo 6" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>✨</span>'"></div>
+                <div class="gallery-item"><img src="photo1.jpg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                <div class="gallery-item"><img src="photo2.jpg" alt="Photo 2" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💕</span>'"></div>
+                <div class="gallery-item"><img src="photo3.jpg" alt="Photo 3" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💐</span>'"></div>
+                <div class="gallery-item"><img src="photo4.jpg" alt="Photo 4" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌸</span>'"></div>
+                <div class="gallery-item"><img src="photo5.jpg" alt="Photo 5" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💒</span>'"></div>
+                <div class="gallery-item"><img src="photo6.jpg" alt="Photo 6" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>✨</span>'"></div>
+            </div>
+            
+            <div class="gallery-divider">
+                ✿ ✿ ✿ ❀ ✿ ✿ ❀ ✿ ✿ ✿
+            </div>
+        </div>
+        <!-- 👆 END GALLERY 👆 -->
+        
+
       <footer class="footer">
             <p>
-                &copy;<span>Developed by </span>:
+                &copy;<span> Developed by </span>:
                 <i class="fas fa-code mr-1"></i>Fekadu Wolde | 2026 Ethiopia
             </p>
       </footer>
 
     </div>
+
     
     <script>
         // ============================================
@@ -1241,6 +1601,56 @@
         if (adminParam && ['JOHN', 'SOL'].includes(adminParam)) {
             showAdminPanel(adminParam);
         }
+
+        // ===== LIGHTBOX FUNCTIONALITY =====
+
+function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    if (lightbox && lightboxImg) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Add click handlers to all gallery images
+document.addEventListener('DOMContentLoaded', function() {
+    // Featured photo
+    const featuredFrame = document.querySelector('.featured-frame');
+    if (featuredFrame) {
+        featuredFrame.style.cursor = 'pointer';
+        featuredFrame.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) openLightbox(img.src);
+        });
+    }
+    
+    // Gallery items
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) openLightbox(img.src);
+        });
+    });
+    
+    // Close with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+});
     </script>
+    
 </body>
 </html>
