@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Admin - Wedding Invitation Generator</title>
     <style>
-        /* =========================================
-           BASIC RESET
-        ========================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Georgia', serif;
             background: linear-gradient(135deg, #c19863 0%, #e8d5c4 100%);
@@ -24,21 +17,18 @@
             padding: 20px;
             overflow-x: hidden;
         }
-
-        /* =========================================
-           ADMIN CONTAINER
-        ========================================= */
         .admin-container {
-            background: white;
+            background: rgb(177, 248, 91);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            max-width: 1200px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            max-width: 1600px;
             width: 100%;
             margin-top: 20px;
             overflow-x: hidden;
             word-wrap: break-word;
         }
+
 
         h1 {
             text-align: center;
@@ -46,24 +36,18 @@
             font-size: 2em;
             margin-bottom: 5px;
         }
-
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #0310f9;
             margin-bottom: 30px;
-            font-style: italic;
+            font-style: normal;
         }
-
-        /* =========================================
-           ADMIN BUTTONS
-        ========================================= */
         .admin-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             margin: 30px 0;
         }
-
         .admin-btn {
             padding: 15px 40px;
             font-size: 1.2em;
@@ -73,24 +57,10 @@
             font-weight: bold;
             transition: transform 0.2s;
         }
-
-        .admin-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-john {
-            background: #2c3e50;
-            color: white;
-        }
-
-        .btn-sol {
-            background: #8B0000;
-            color: white;
-        }
-
-        /* =========================================
-           PANELS
-        ========================================= */
+        .admin-btn:hover { transform: translateY(-2px); }
+        .btn-john { background: cyan; color: black; }
+        .btn-sol { background: #fd0eed; color: black; }
+        
         .panel {
             display: none;
             margin-top: 30px;
@@ -98,28 +68,20 @@
             border-radius: 12px;
             background: #f9f4f0;
         }
-
-        .panel.active {
-            display: block;
-        }
-
-        /* =========================================
-           GENERATE AREA
-        ========================================= */
+        .panel.active { display: block; }
+        
         .generate-area {
             background: white;
             padding: 25px;
             border-radius: 12px;
             margin: 20px 0;
         }
-
         .generate-area label {
             display: block;
             font-weight: bold;
             margin-bottom: 8px;
             color: #333;
         }
-
         .generate-area input {
             width: 100%;
             padding: 12px;
@@ -129,12 +91,10 @@
             font-family: 'Georgia', serif;
             margin-bottom: 15px;
         }
-
         .generate-area input:focus {
             border-color: #8B0000;
             outline: none;
         }
-
         .generate-area select {
             width: 100%;
             padding: 12px;
@@ -145,15 +105,13 @@
             margin-bottom: 15px;
             background: white;
         }
-
         .generate-area select:focus {
             border-color: #8B0000;
             outline: none;
         }
-
         .generate-btn {
             background: #27ae60;
-            color: white;
+            color: black;
             border: none;
             padding: 12px 30px;
             border-radius: 8px;
@@ -162,14 +120,8 @@
             transition: background 0.3s;
             width: 100%;
         }
-
-        .generate-btn:hover {
-            background: #219a52;
-        }
-
-        /* =========================================
-           LINK DISPLAY
-        ========================================= */
+        .generate-btn:hover { background: #05f465; }
+        
         .link-display {
             margin: 15px 0;
             padding: 15px;
@@ -177,25 +129,21 @@
             border-radius: 8px;
             word-break: break-all;
         }
-
         .link-display .link-url {
             color: #2c3e50;
             font-size: 0.9em;
         }
-
-        /* =========================================
-           PREVIEW BUTTON
-        ========================================= */
+        
+        /* ===== PREVIEW BUTTON ===== */
         .preview-section {
             margin-top: 15px;
             padding-top: 15px;
             border-top: 2px dashed #ddd;
             display: none;
         }
-
         .preview-btn {
-            background: #8B0000;
-            color: white;
+            background: rgb(238, 16, 201);
+            color: black;
             border: none;
             padding: 12px 30px;
             border-radius: 8px;
@@ -205,40 +153,31 @@
             transition: background 0.3s;
             width: 100%;
         }
-
-        .preview-btn:hover {
-            background: #6b0000;
-        }
-
+        .preview-btn:hover { background: rgb(168, 4, 244); }
         .preview-hint {
             margin-top: 8px;
             font-size: 0.85em;
-            color: #666;
+            color: cyan;
             text-align: center;
         }
-
-        /* =========================================
-           SHARE BUTTONS
-        ========================================= */
+        
+        /* ===== SHARE BUTTONS ===== */
         .share-buttons-container {
             margin-top: 15px;
             padding-top: 15px;
             border-top: 2px dashed #ddd;
         }
-
         .share-buttons-container p {
             font-size: 0.9em;
             color: #666;
             margin-bottom: 10px;
         }
-
         .share-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
         }
-
         .share-btn {
             display: inline-flex;
             align-items: center;
@@ -253,69 +192,30 @@
             text-decoration: none;
             color: white;
         }
-
         .share-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
         .share-btn svg {
             width: 20px;
             height: 20px;
             fill: currentColor;
         }
-
-        .share-whatsapp {
-            background: #25D366;
-        }
-
-        .share-whatsapp:hover {
-            background: #1da851;
-        }
-
-        .share-telegram {
-            background: #0088cc;
-        }
-
-        .share-telegram:hover {
-            background: #006699;
-        }
-
-        .share-messenger {
-            background: #00B2FF;
-        }
-
-        .share-messenger:hover {
-            background: #0099dd;
-        }
-
-        .share-email {
-            background: #ea4335;
-        }
-
-        .share-email:hover {
-            background: #d33426;
-        }
-
-        .share-copy {
-            background: #6c757d;
-        }
-
-        .share-copy:hover {
-            background: #5a6268;
-        }
-
-        .share-sms {
-            background: #ff9800;
-        }
-
-        .share-sms:hover {
-            background: #e68900;
-        }
-
-        /* =========================================
-           TABLE VIEW
-        ========================================= */
+        
+        .share-whatsapp { background: #25D366; }
+        .share-whatsapp:hover { background: #1da851; }
+        .share-telegram { background: #0088cc; }
+        .share-telegram:hover { background: #006699; }
+        .share-messenger { background: #00B2FF; }
+        .share-messenger:hover { background: #0099dd; }
+        .share-email { background: #ea4335; }
+        .share-email:hover { background: #d33426; }
+        .share-copy { background: #6c757d; }
+        .share-copy:hover { background: #5a6268; }
+        .share-sms { background: #ff9800; }
+        .share-sms:hover { background: #e68900; }
+        
+        /* ===== TABLE STYLES ===== */
         .table-container {
             margin-top: 20px;
             overflow-x: auto;
@@ -323,19 +223,19 @@
             border-radius: 12px;
             padding: 5px;
         }
-
+        
         .guest-table {
             width: 100%;
             border-collapse: collapse;
             font-family: 'Georgia', serif;
             font-size: 0.9em;
         }
-
+        
         .guest-table thead {
-            background: linear-gradient(135deg, #8B0000, #6b0000);
+            background: linear-gradient(135deg, #a823a8, #7109f8);
             color: white;
         }
-
+        
         .guest-table th {
             padding: 14px 12px;
             text-align: left;
@@ -343,52 +243,29 @@
             font-size: 0.95em;
             letter-spacing: 0.5px;
         }
-
+        
         .guest-table td {
             padding: 12px 12px;
             border-bottom: 1px solid #eee;
             vertical-align: middle;
         }
-
+        
         .guest-table tbody tr:hover {
             background: #fdf6f0;
         }
-
+        
         .guest-table tbody tr:last-child td {
             border-bottom: none;
         }
-
-        .col-roll {
-            width: 8%;
-            text-align: center;
-            font-weight: bold;
-            color: #8B0000;
-        }
-
-        .col-name {
-            width: 20%;
-            font-weight: 600;
-            color: #2c1810;
-        }
-
-        .col-attendance {
-            width: 18%;
-        }
-
-        .col-link {
-            width: 30%;
-        }
-
-        .col-status {
-            width: 12%;
-            text-align: center;
-        }
-
-        .col-actions {
-            width: 12%;
-            text-align: center;
-        }
-
+        
+        /* Column widths */
+        .col-roll { width: 8%; text-align: center; font-weight: bold; color: black; }
+        .col-name { width: 20%; font-weight: 600; color: black; }
+        .col-attendance { width: 18%; }
+        .col-link { width: 30%; }
+        .col-status { width: 12%; text-align: center; }
+        .col-actions { width: 12%; text-align: center; }
+        
         .attendance-badge {
             display: inline-block;
             padding: 3px 12px;
@@ -396,22 +273,10 @@
             font-size: 0.8em;
             font-weight: 600;
         }
-
-        .attendance-with {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .attendance-single {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        .attendance-empty {
-            background: #e2e3e5;
-            color: #383d41;
-        }
-
+        .attendance-with { background: #d4edda; color: #155724; }
+        .attendance-single { background: #f8d7da; color: #721c24; }
+        .attendance-empty { background: #e2e3e5; color: #383d41; }
+        
         .status-badge {
             display: inline-block;
             padding: 3px 12px;
@@ -419,34 +284,24 @@
             font-size: 0.8em;
             font-weight: 600;
         }
-
-        .status-active {
-            background: #2ecc71;
-            color: white;
-        }
-
-        .status-used {
-            background: #e67e22;
-            color: white;
-        }
-
+        .status-active { background: #2ecc71; color: white; }
+        .status-used { background: #e67e22; color: white; }
+        
         .link-cell {
             font-size: 0.75em;
             color: #2c3e50;
             word-break: break-all;
             max-width: 200px;
         }
-
         .link-cell a {
             color: #2c3e50;
             text-decoration: none;
         }
-
         .link-cell a:hover {
             color: #8B0000;
             text-decoration: underline;
         }
-
+        
         .action-btn {
             padding: 5px 12px;
             border: none;
@@ -456,64 +311,17 @@
             font-weight: 600;
             transition: all 0.2s;
         }
-
-        .action-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .btn-revoke {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .btn-revoke:hover {
-            background: #c0392b;
-        }
-
-        .btn-copy-link {
-            background: #3498db;
-            color: white;
-            margin-right: 4px;
-        }
-
-        .btn-copy-link:hover {
-            background: #2980b9;
-        }
-
-        .no-guests {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-            font-style: italic;
-        }
-
-        .table-header-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 15px 0 10px 0;
-        }
-
-        .table-header-actions h3 {
-            color: #333;
-        }
-
-        .table-count {
-            font-size: 0.9em;
-            color: #666;
-            background: #f0f0f0;
-            padding: 4px 14px;
-            border-radius: 20px;
-        }
-
-        /* =========================================
-           PASSWORD INPUT
-        ========================================= */
+        .action-btn:hover { transform: scale(1.05); }
+        .btn-revoke { background: #e74c3c; color: white; }
+        .btn-revoke:hover { background: #c0392b; }
+        .btn-copy-link { background: #3498db; color: white; margin-right: 4px; }
+        .btn-copy-link:hover { background: #2980b9; }
+        
+        /* ===== PASSWORD INPUT ===== */
         .password-input {
             margin: 20px 0;
             text-align: center;
         }
-
         .password-input input {
             padding: 10px;
             border: 2px solid #ddd;
@@ -521,20 +329,16 @@
             font-size: 1em;
             width: 200px;
         }
-
         .password-input button {
             padding: 10px 25px;
-            background: #2c3e50;
+            background: red;
             color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             margin-left: 10px;
         }
-
-        /* =========================================
-           STATS
-        ========================================= */
+        
         .stats {
             display: flex;
             justify-content: space-around;
@@ -543,22 +347,19 @@
             background: white;
             border-radius: 8px;
         }
-
         .stat-item {
             text-align: center;
         }
-
         .stat-number {
             font-size: 2em;
             font-weight: bold;
             color: #8B0000;
         }
-
         .stat-label {
             color: #666;
             font-size: 0.9em;
         }
-
+        
         .family-badge {
             display: inline-block;
             padding: 2px 10px;
@@ -566,703 +367,1104 @@
             font-size: 0.7em;
             font-weight: bold;
         }
-
-        .badge-john {
-            background: #2c3e50;
-            color: white;
+        .badge-john { background: #2c3e50; color: white; }
+        .badge-sol { background: #8B0000; color: white; }
+        
+        .no-guests {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-style: italic;
         }
-
-        .badge-sol {
-            background: #8B0000;
-            color: white;
+        
+        .table-header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0 10px 0;
         }
-
-        /* =========================================
-           COUPLE PHOTO GALLERY
-        ========================================= */
-        .couple-gallery-section {
-            margin: 25px 0 35px 0;
-            padding: 25px 20px;
-            background: linear-gradient(135deg, #fdf6f0, #f8f0df, #fdf6f0);
+        .table-header-actions h3 {
+            color: #333;
+        }
+        .table-count {
+            font-size: 0.9em;
+            color: #666;
+            background: #f0f0f0;
+            padding: 4px 14px;
             border-radius: 20px;
-            border: 2px solid #d4a373;
-            box-shadow: 0 8px 25px rgba(184, 137, 50, 0.12);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-
-        .couple-gallery-section::before {
-            content: "❧";
-            position: absolute;
-            top: 8px;
-            left: 10px;
-            font-size: 28px;
-            color: rgba(184, 137, 50, 0.4);
-            transform: rotate(-10deg);
-            pointer-events: none;
-        }
-
-        .couple-gallery-section::after {
-            content: "❧";
-            position: absolute;
-            bottom: 8px;
-            right: 10px;
-            font-size: 28px;
-            color: rgba(184, 137, 50, 0.4);
-            transform: rotate(170deg);
-            pointer-events: none;
-        }
-
-        .gallery-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .gallery-title h2 {
-            font-family: 'Noto Sans Ethiopic', 'Georgia', serif;
-            font-size: 1.2em;
-            color: #8B0000;
-            font-weight: 600;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        .title-line {
-            height: 2px;
-            width: 50px;
-            background: linear-gradient(90deg, transparent, #d4a373, transparent);
-            flex: 1;
-            max-width: 120px;
-        }
-
-        .featured-photo {
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .featured-frame {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid #d4a373;
-            overflow: hidden;
-            box-shadow:
-                0 8px 25px rgba(0, 0, 0, 0.15),
-                0 0 0 8px rgba(184, 137, 50, 0.1);
-            background: #f5e6d3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .featured-frame:hover {
-            transform: scale(1.05);
-            box-shadow:
-                0 12px 35px rgba(0, 0, 0, 0.2),
-                0 0 0 10px rgba(184, 137, 50, 0.15);
-        }
-
-        .featured-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .featured-frame .initials-large {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #8B0000;
-            font-family: 'Georgia', serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .couple-names-preview {
-            font-family: 'Georgia', 'Noto Sans Ethiopic', serif;
-            font-size: 1.4em;
-            font-weight: 600;
-            color: #8B0000;
-            margin: 15px 0 8px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .couple-names-preview .heart {
-            font-size: 1.1em;
-            color: #e74c3c;
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.15); }
-            50% { transform: scale(1.05); }
-            75% { transform: scale(1.15); }
-        }
-
-        .wedding-date-preview {
-            font-family: 'Noto Sans Ethiopic', 'Georgia', serif;
-            font-size: 1em;
-            color: #5a3e2b;
-            margin: 8px 0 20px 0;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .photo-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
-            margin: 20px 0 15px 0;
-            padding: 0 10px;
-        }
-
-        .gallery-item {
-            aspect-ratio: 1;
-            border-radius: 12px;
-            border: 3px solid #d4a373;
-            overflow: hidden;
-            background: #f5e6d3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(184, 137, 50, 0.15);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(184, 137, 50, 0.3);
-            border-color: #8B0000;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-item .initials-small {
-            font-size: 1.8em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gallery-divider {
-            margin-top: 20px;
-            font-size: 1em;
-            color: #d4a373;
-            letter-spacing: 6px;
-            opacity: 0.8;
-        }
-
-        /* =========================================
-           LIGHTBOX
-        ========================================= */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 85vh;
-            border-radius: 16px;
-            border: 4px solid #d4a373;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            animation: zoomIn 0.3s ease;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 3em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-            z-index: 10000;
-        }
-
-        .lightbox-close:hover {
-            color: #d4a373;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-        .admin-footer {
-            text-align: center;
-            margin-top: 25px;
-            padding: 12px;
-            background: linear-gradient(90deg, #fdf6f0, #f8f0df, #fdf6f0);
-            border-top: 2px solid #d4a373;
-            border-radius: 8px;
-            font-family: 'Noto Sans Ethiopic', 'Georgia', serif;
-            font-size: 0.85em;
-            color: #5a3e2b;
-        }
-
-        .admin-footer a {
-            color: #8B0000;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .admin-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* =========================================
-           MOBILE - TABLET (max-width: 768px)
-        ========================================= */
-        @media (max-width: 768px) {
-            body {
-                padding: 5px !important;
-                display: block !important;
-                min-height: auto !important;
-            }
-
-            .admin-container {
-                padding: 12px 8px !important;
-                border-radius: 10px !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                margin: 5px auto !important;
-                border: none !important;
-            }
-
-            .admin-container h1,
-            h1 {
-                font-size: 0.95em !important;
-                line-height: 1.3 !important;
-                margin-bottom: 3px !important;
-                padding: 0 5px !important;
-            }
-
-            .subtitle {
-                font-size: 0.65em !important;
-                margin-bottom: 10px !important;
-                padding: 0 5px !important;
-                line-height: 1.4 !important;
-            }
-
-            .admin-buttons {
-                flex-direction: column !important;
-                gap: 6px !important;
-                margin: 10px 0 !important;
-                padding: 0 5px !important;
-            }
-
-            .admin-btn {
-                width: 100% !important;
-                padding: 10px 8px !important;
-                font-size: 0.85em !important;
-                border-radius: 8px !important;
-            }
-
-            .panel {
-                padding: 10px 6px !important;
-                margin-top: 10px !important;
-                border-radius: 8px !important;
-            }
-
-            .panel h2 {
-                font-size: 0.9em !important;
-                margin-bottom: 8px !important;
-            }
-
-            .password-input {
-                margin: 10px 0 !important;
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 8px !important;
-                align-items: center !important;
-            }
-
-            .password-input input {
-                width: 90% !important;
-                max-width: 250px !important;
-                padding: 10px !important;
-                font-size: 0.85em !important;
-                margin: 0 !important;
-            }
-
-            .password-input button {
-                width: 90% !important;
-                max-width: 250px !important;
-                padding: 10px !important;
-                font-size: 0.85em !important;
-                margin: 0 !important;
-                border-radius: 8px !important;
-            }
-
-            .stats {
-                flex-wrap: wrap !important;
-                gap: 5px !important;
-                padding: 8px 5px !important;
-                margin: 10px 0 !important;
-            }
-
-            .stat-item {
-                flex: 1 1 calc(33% - 5px) !important;
-                min-width: 60px !important;
-                padding: 5px 2px !important;
-            }
-
-            .stat-number {
-                font-size: 1.2em !important;
-            }
-
-            .stat-label {
-                font-size: 0.65em !important;
-            }
-
-            .generate-area {
-                padding: 10px 8px !important;
-                margin: 10px 0 !important;
-            }
-
-            .generate-area label {
-                font-size: 0.8em !important;
-                margin-bottom: 5px !important;
-            }
-
-            .generate-area input,
-            .generate-area select {
-                padding: 9px !important;
-                font-size: 0.85em !important;
-                margin-bottom: 10px !important;
-            }
-
-            .generate-btn {
-                font-size: 0.85em !important;
-                padding: 10px !important;
-            }
-
-            .share-buttons-container {
-                margin-top: 10px !important;
-                padding-top: 10px !important;
-            }
-
-            .share-buttons-container p {
-                font-size: 0.75em !important;
-                margin-bottom: 8px !important;
-            }
-
-            .share-buttons {
-                flex-direction: row !important;
-                flex-wrap: wrap !important;
-                gap: 5px !important;
-                justify-content: center !important;
-            }
-
-            .share-btn {
-                flex: 1 1 calc(50% - 5px) !important;
-                min-width: 80px !important;
-                padding: 8px 5px !important;
-                font-size: 0.7em !important;
-                justify-content: center !important;
-            }
-
-            .share-btn svg {
-                width: 14px !important;
-                height: 14px !important;
-            }
-
-            .preview-section {
-                margin-top: 10px !important;
-                padding-top: 10px !important;
-            }
-
-            .preview-btn {
-                font-size: 0.85em !important;
-                padding: 10px !important;
-            }
-
-            .preview-hint {
-                font-size: 0.7em !important;
-            }
-
-            .link-display {
-                padding: 8px 6px !important;
-                font-size: 0.75em !important;
-                margin: 10px 0 !important;
-            }
-
-            .link-url {
-                font-size: 0.65em !important;
-                word-break: break-all !important;
-                display: block !important;
-                margin-top: 5px !important;
-            }
-
-            .table-container {
-                padding: 0 !important;
-                margin-top: 10px !important;
-                overflow-x: auto !important;
-                -webkit-overflow-scrolling: touch !important;
-            }
-
-            .table-header-actions {
-                flex-direction: column !important;
-                gap: 5px !important;
-                align-items: flex-start !important;
-                margin: 8px 0 !important;
-                padding: 0 5px !important;
-            }
-
-            .table-header-actions h3 {
-                font-size: 0.9em !important;
-            }
-
-            .table-count {
-                font-size: 0.7em !important;
-                padding: 2px 8px !important;
-            }
-
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
             .guest-table {
-                font-size: 0.6em !important;
-                min-width: 600px !important;
+                font-size: 0.8em;
             }
-
-            .guest-table th,
-            .guest-table td {
-                padding: 5px 3px !important;
+            .guest-table th, .guest-table td {
+                padding: 8px 6px;
             }
-
-            .guest-table th {
-                font-size: 0.65em !important;
+            .col-roll { width: 6%; }
+            .col-name { width: 15%; }
+            .col-attendance { width: 15%; }
+            .col-link { width: 25%; }
+            .col-status { width: 10%; }
+            .col-actions { width: 15%; }
+        }
+        
+        @media (max-width: 600px) {
+            .share-buttons {
+                flex-direction: column;
+                align-items: stretch;
             }
-
-            .link-cell {
-                font-size: 0.55em !important;
-                max-width: 80px !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-                white-space: nowrap !important;
+            .share-btn {
+                justify-content: center;
             }
-
-            .attendance-badge,
-            .status-badge {
-                font-size: 0.55em !important;
-                padding: 2px 5px !important;
+            .admin-buttons {
+                flex-direction: column;
+                align-items: center;
             }
-
+            .admin-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .admin-container {
+                padding: 20px 15px;
+            }
+            .guest-table {
+                font-size: 0.7em;
+            }
+            .guest-table th, .guest-table td {
+                padding: 5px 4px;
+            }
             .action-btn {
-                padding: 2px 5px !important;
-                font-size: 0.6em !important;
+                padding: 3px 8px;
+                font-size: 0.7em;
             }
-
-            /* ===== PHOTO GALLERY MOBILE ===== */
-            .couple-gallery-section {
-                padding: 12px 8px !important;
-                margin: 12px 0 !important;
-                border-radius: 12px !important;
+            .link-cell {
+                max-width: 80px;
             }
-
-            .couple-gallery-section::before,
-            .couple-gallery-section::after {
-                display: none !important;
-            }
-
-            .gallery-title {
-                gap: 8px !important;
-                margin-bottom: 12px !important;
-            }
-
-            .gallery-title h2 {
-                font-size: 0.8em !important;
-                white-space: normal !important;
-                padding: 0 5px !important;
-            }
-
-            .title-line {
-                max-width: 40px !important;
-            }
-
-            .featured-frame {
-                width: 100px !important;
-                height: 100px !important;
-                border-width: 3px !important;
-            }
-
-            .featured-frame .initials-large {
-                font-size: 1.2em !important;
-            }
-
-            .couple-names-preview {
-                font-size: 0.85em !important;
-                gap: 5px !important;
-                margin: 8px 0 4px 0 !important;
-            }
-
-            .couple-names-preview .heart {
-                font-size: 0.9em !important;
-            }
-
-            .wedding-date-preview {
-                font-size: 0.7em !important;
-                margin: 4px 0 12px 0 !important;
-            }
-
-            .photo-gallery-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 5px !important;
-                padding: 0 !important;
-                margin: 10px 0 !important;
-            }
-
-            .gallery-item {
-                border-width: 2px !important;
-                border-radius: 6px !important;
-                aspect-ratio: 1 !important;
-            }
-
-            .gallery-item .initials-small {
-                font-size: 1em !important;
-            }
-
-            .gallery-divider {
-                font-size: 0.7em !important;
-                letter-spacing: 2px !important;
-                margin-top: 10px !important;
-            }
-
-            .admin-footer {
-                font-size: 0.6em !important;
-                padding: 8px 5px !important;
-                margin-top: 10px !important;
-            }
-
-            .lightbox-close {
-                font-size: 2em !important;
-                top: 10px !important;
-                right: 15px !important;
+            .table-header-actions {
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
             }
         }
 
         /* =========================================
-           VERY SMALL MOBILE (max-width: 400px)
-        ========================================= */
-        @media (max-width: 400px) {
-            .admin-container {
-                padding: 10px 6px !important;
-            }
+   MOBILE RESPONSIVE - ADMIN PANEL
+   ========================================= */
 
-            .admin-container h1 {
-                font-size: 0.85em !important;
-            }
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 20px 15px !important;
+        border-radius: 15px !important;
+    }
+    
+    .admin-container h1 {
+        font-size: 1.5em !important;
+    }
+    
+    .admin-buttons {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    
+    .admin-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px !important;
+        font-size: 1em !important;
+    }
+    
+    .panel {
+        padding: 15px 10px !important;
+    }
+    
+    .stats {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        padding: 12px !important;
+    }
+    
+    .stat-item {
+        flex: 1 1 40% !important;
+        min-width: 80px !important;
+    }
+    
+    .stat-number {
+        font-size: 1.5em !important;
+    }
+    
+    .stat-label {
+        font-size: 0.75em !important;
+    }
+    
+    .generate-area {
+        padding: 15px !important;
+    }
+    
+    .generate-area label {
+        font-size: 0.9em !important;
+    }
+    
+    .generate-area input,
+    .generate-area select {
+        padding: 10px !important;
+        font-size: 0.9em !important;
+    }
+    
+    .generate-btn {
+        font-size: 1em !important;
+        padding: 10px !important;
+    }
+    
+    .share-buttons {
+        flex-direction: column !important;
+    }
+    
+    .share-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px !important;
+        font-size: 0.85em !important;
+    }
+    
+    .share-btn svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    /* Table */
+    .table-container {
+        padding: 0 !important;
+        overflow-x: auto !important;
+    }
+    
+    .guest-table {
+        font-size: 0.7em !important;
+        min-width: 500px !important;
+    }
+    
+    .guest-table th,
+    .guest-table td {
+        padding: 6px 4px !important;
+    }
+    
+    .guest-table th {
+        font-size: 0.7em !important;
+    }
+    
+    .col-roll { width: 8% !important; }
+    .col-name { width: 18% !important; }
+    .col-attendance { width: 18% !important; }
+    .col-link { width: 25% !important; }
+    .col-status { width: 12% !important; }
+    .col-actions { width: 15% !important; }
+    
+    .link-cell {
+        font-size: 0.65em !important;
+        max-width: 80px !important;
+    }
+    
+    .attendance-badge,
+    .status-badge {
+        font-size: 0.65em !important;
+        padding: 2px 6px !important;
+    }
+    
+    .action-btn {
+        padding: 3px 6px !important;
+        font-size: 0.7em !important;
+    }
+    
+    .table-header-actions {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+    }
+    
+    .table-header-actions h3 {
+        font-size: 1em !important;
+    }
+    
+    .table-count {
+        font-size: 0.8em !important;
+        padding: 2px 10px !important;
+    }
+    
+    .no-guests {
+        font-size: 0.8em !important;
+        padding: 20px !important;
+    }
+    
+    .preview-btn {
+        font-size: 1em !important;
+        padding: 10px !important;
+    }
+    
+    .preview-hint {
+        font-size: 0.75em !important;
+    }
+    
+    .password-input input {
+        width: 160px !important;
+        font-size: 0.9em !important;
+    }
+    
+    .password-input button {
+        font-size: 0.9em !important;
+        padding: 8px 16px !important;
+    }
+    
+    .link-display {
+        font-size: 0.85em !important;
+        padding: 10px !important;
+    }
+    
+    .link-display .link-url {
+        font-size: 0.75em !important;
+    }
+}
 
-            .subtitle {
-                font-size: 0.6em !important;
-            }
+/* =========================================
+   VERY SMALL MOBILE (under 480px)
+   ========================================= */
 
-            .admin-btn {
-                font-size: 0.8em !important;
-                padding: 9px !important;
-            }
+@media (max-width: 480px) {
+    .admin-container {
+        padding: 12px 10px !important;
+    }
+    
+    .admin-container h1 {
+        font-size: 1.2em !important;
+    }
+    
+    .subtitle {
+        font-size: 0.8em !important;
+    }
+    
+    .stats {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 4px !important;
+    }
+    
+    .stat-item {
+        flex: 1 1 100% !important;
+        text-align: center !important;
+        padding: 4px 0 !important;
+    }
+    
+    .stat-number {
+        font-size: 1.2em !important;
+    }
+    
+    .guest-table {
+        font-size: 0.6em !important;
+        min-width: 400px !important;
+    }
+    
+    .guest-table th,
+    .guest-table td {
+        padding: 4px 3px !important;
+    }
+    
+    .link-cell {
+        font-size: 0.55em !important;
+        max-width: 50px !important;
+    }
+    
+    .action-btn {
+        padding: 2px 4px !important;
+        font-size: 0.6em !important;
+    }
+    
+    .generate-area {
+        padding: 10px !important;
+    }
+    
+    .generate-area label {
+        font-size: 0.8em !important;
+    }
+    
+    .generate-area input,
+    .generate-area select {
+        padding: 8px !important;
+        font-size: 0.8em !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .generate-btn {
+        font-size: 0.85em !important;
+        padding: 8px !important;
+    }
+    
+    .share-btn {
+        font-size: 0.75em !important;
+        padding: 8px !important;
+    }
+    
+    .preview-btn {
+        font-size: 0.85em !important;
+        padding: 8px !important;
+    }
+    
+    .password-input input {
+        width: 140px !important;
+        font-size: 0.8em !important;
+    }
+    
+    .password-input button {
+        font-size: 0.8em !important;
+        padding: 6px 12px !important;
+    }
+}
 
-            .featured-frame {
-                width: 85px !important;
-                height: 85px !important;
-                border-width: 3px !important;
-            }
 
-            .featured-frame .initials-large {
-                font-size: 1em !important;
-            }
+/* =========================================
+   COUPLE PHOTO GALLERY
+========================================= */
 
-            .couple-names-preview {
-                font-size: 0.75em !important;
-            }
+.couple-gallery-section {
+    margin: 25px 0 35px 0;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, #f9fdf0, gold, #fdf6f0);
+    border-radius: 20px;
+    border: 2px solid #9273d4;
+    box-shadow: 0 8px 25px rgba(184, 137, 50, 0.12);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-            .wedding-date-preview {
-                font-size: 0.65em !important;
-            }
+/* Decorative corner flowers */
+.couple-gallery-section::before {
+    content: "❧";
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 28px;
+    color: rgba(184, 137, 50, 0.4);
+    transform: rotate(-10deg);
+    pointer-events: none;
+}
 
-            .photo-gallery-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 4px !important;
-            }
+.couple-gallery-section::after {
+    content: "❧";
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-size: 28px;
+    color: rgba(184, 137, 50, 0.4);
+    transform: rotate(170deg);
+    pointer-events: none;
+}
 
-            .gallery-item .initials-small {
-                font-size: 0.9em !important;
-            }
+/* ===== GALLERY TITLE ===== */
+.gallery-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
 
-            .share-btn {
-                flex: 1 1 100% !important;
-                font-size: 0.7em !important;
-            }
+.gallery-title h2 {
+    font-family: 'Noto Sans Ethiopic', 'Georgia', serif;
+    font-size: 1.2em;
+    color: #8B0000;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
 
-            .stat-item {
-                flex: 1 1 calc(50% - 5px) !important;
-            }
+.title-line {
+    height: 2px;
+    width: 50px;
+    background: linear-gradient(90deg, transparent, #d4a373, transparent);
+    flex: 1;
+    max-width: 120px;
+}
 
-            .password-input input,
-            .password-input button {
-                width: 95% !important;
-                max-width: none !important;
-            }
+/* ===== FEATURED PHOTO ===== */
+.featured-photo {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.featured-frame {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #d4a373;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 0 0 8px rgba(184, 137, 50, 0.1);
+    background: #f5e6d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.featured-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 12px 35px rgba(0, 0, 0, 0.2),
+        0 0 0 10px rgba(184, 137, 50, 0.15);
+}
+
+.featured-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.featured-frame .initials-large {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #8B0000;
+    font-family: 'Georgia', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* ===== COUPLE NAMES ===== */
+.couple-names-preview {
+    font-family: 'Georgia', 'Noto Sans Ethiopic', serif;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #8B0000;
+    margin: 15px 0 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.couple-names-preview .heart {
+    font-size: 1.1em;
+    color: #e74c3c;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    50% { transform: scale(1.05); }
+    75% { transform: scale(1.15); }
+}
+
+/* ===== WEDDING DATE ===== */
+.wedding-date-preview {
+    font-family: 'Noto Sans Ethiopic', 'Georgia', serif;
+    font-size: 1em;
+    color: #5a3e2b;
+    margin: 8px 0 20px 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ===== PHOTO GALLERY GRID ===== */
+.photo-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 7px;
+    margin: 20px 0 15px 0;
+    padding: 0 10px;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    border: 3px solid #d4a373;
+    overflow: hidden;
+    background: #f5e6d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(184, 137, 50, 0.15);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(184, 137, 50, 0.3);
+    border-color: #8B0000;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item .initials-small {
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== GALLERY DIVIDER ===== */
+.gallery-divider {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #d4a373;
+    letter-spacing: 6px;
+    opacity: 0.8;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE - GALLERY
+========================================= */
+
+@media (max-width: 900px) {
+    .photo-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .featured-frame {
+        width: 170px;
+        height: 170px;
+    }
+    
+    .couple-names-preview {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .couple-gallery-section {
+        padding: 20px 12px;
+        margin: 20px 0 25px 0;
+    }
+    
+    .featured-frame {
+        width: 140px;
+        height: 140px;
+        border-width: 4px;
+    }
+    
+    .featured-frame .initials-large {
+        font-size: 1.8em;
+    }
+    
+    .gallery-title h2 {
+        font-size: 1em;
+    }
+    
+    .title-line {
+        max-width: 60px;
+    }
+    
+    .couple-names-preview {
+        font-size: 1.05em;
+        gap: 8px;
+    }
+    
+    .wedding-date-preview {
+        font-size: 0.9em;
+    }
+    
+    .photo-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .gallery-item {
+        border-width: 2px;
+        border-radius: 8px;
+    }
+    
+    .gallery-item .initials-small {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 400px) {
+    .featured-frame {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .couple-names-preview {
+        font-size: 0.95em;
+        gap: 5px;
+    }
+    
+    .photo-gallery-grid {
+        gap: 6px;
+    }
+    
+    .gallery-item .initials-small {
+        font-size: 1em;
+    }
+    
+    .gallery-divider {
+        font-size: 0.8em;
+        letter-spacing: 3px;
+    }
+}
+
+.footer {
+            background-color: white;
+            color: rgb(81, 5, 174);
+            text-align: center;
+            padding: 0.5rem 0;
+            margin-top: 4rem;
+            margin-bottom: 0.1rem;
+            font-size: 0.9rem;
+            font-weight: 100;
         }
+
+
+        /* =========================================
+   MOBILE FIX - ADMIN PANEL
+========================================= */
+
+
+@media (max-width: 768px) {
+    
+    /* ===== BODY & CONTAINER ===== */
+    body {
+        padding: 5px !important;
+        display: block !important;
+        min-height: auto !important;
+    }
+    
+    .admin-container {
+        padding: 12px 8px !important;
+        border-radius: 10px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 5px auto !important;
+        border: none !important;
+    }
+    
+    /* ===== HEADER ===== */
+    .admin-container h1,
+    h1 {
+        font-size: 0.95em !important;
+        line-height: 1.3 !important;
+        margin-bottom: 3px !important;
+        padding: 0 5px !important;
+    }
+    
+    .subtitle {
+        font-size: 0.65em !important;
+        margin-bottom: 10px !important;
+        padding: 0 5px !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* ===== ADMIN BUTTONS ===== */
+    .admin-buttons {
+        flex-direction: column !important;
+        gap: 6px !important;
+        margin: 10px 0 !important;
+        padding: 0 5px !important;
+    }
+    
+    .admin-btn {
+        width: 100% !important;
+        padding: 10px 8px !important;
+        font-size: 0.85em !important;
+        border-radius: 8px !important;
+    }
+    
+    /* ===== PANELS ===== */
+    .panel {
+        padding: 10px 6px !important;
+        margin-top: 10px !important;
+        border-radius: 8px !important;
+    }
+    
+    .panel h2 {
+        font-size: 0.9em !important;
+        margin-bottom: 8px !important;
+    }
+    
+    /* ===== PASSWORD INPUT ===== */
+    .password-input {
+        margin: 10px 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        align-items: center !important;
+    }
+    
+    .password-input input {
+        width: 90% !important;
+        max-width: 250px !important;
+        padding: 10px !important;
+        font-size: 0.85em !important;
+        margin: 0 !important;
+    }
+    
+    .password-input button {
+        width: 90% !important;
+        max-width: 250px !important;
+        padding: 10px !important;
+        font-size: 0.85em !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
+    }
+    
+    /* ===== STATS ===== */
+    .stats {
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+        padding: 8px 5px !important;
+        margin: 10px 0 !important;
+    }
+    
+    .stat-item {
+        flex: 1 1 calc(33% - 5px) !important;
+        min-width: 60px !important;
+        padding: 5px 2px !important;
+    }
+    
+    .stat-number {
+        font-size: 1.2em !important;
+    }
+    
+    .stat-label {
+        font-size: 0.65em !important;
+    }
+    
+    /* ===== GENERATE AREA ===== */
+    .generate-area {
+        padding: 10px 8px !important;
+        margin: 10px 0 !important;
+    }
+    
+    .generate-area label {
+        font-size: 0.8em !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .generate-area input,
+    .generate-area select {
+        padding: 9px !important;
+        font-size: 0.85em !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .generate-btn {
+        font-size: 0.85em !important;
+        padding: 10px !important;
+    }
+    
+    /* ===== SHARE BUTTONS ===== */
+    .share-buttons-container {
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+    }
+    
+    .share-buttons-container p {
+        font-size: 0.75em !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .share-buttons {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+        justify-content: center !important;
+    }
+    
+    .share-btn {
+        flex: 1 1 calc(50% - 5px) !important;
+        min-width: 80px !important;
+        padding: 8px 5px !important;
+        font-size: 0.7em !important;
+        justify-content: center !important;
+    }
+    
+    .share-btn svg {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    
+    /* ===== PREVIEW BUTTON ===== */
+    .preview-section {
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+    }
+    
+    .preview-btn {
+        font-size: 0.85em !important;
+        padding: 10px !important;
+    }
+    
+    .preview-hint {
+        font-size: 0.7em !important;
+    }
+    
+    /* ===== LINK DISPLAY ===== */
+    .link-display {
+        padding: 8px 6px !important;
+        font-size: 0.75em !important;
+        margin: 10px 0 !important;
+    }
+    
+    .link-url {
+        font-size: 0.65em !important;
+        word-break: break-all !important;
+        display: block !important;
+        margin-top: 5px !important;
+    }
+    
+    /* ===== TABLE ===== */
+    .table-container {
+        padding: 0 !important;
+        margin-top: 10px !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .table-header-actions {
+        flex-direction: column !important;
+        gap: 5px !important;
+        align-items: flex-start !important;
+        margin: 8px 0 !important;
+        padding: 0 5px !important;
+    }
+    
+    .table-header-actions h3 {
+        font-size: 0.9em !important;
+    }
+    
+    .table-count {
+        font-size: 0.7em !important;
+        padding: 2px 8px !important;
+    }
+    
+    .guest-table {
+        font-size: 0.6em !important;
+        min-width: 600px !important;
+    }
+    
+    .guest-table th,
+    .guest-table td {
+        padding: 5px 3px !important;
+    }
+    
+    .guest-table th {
+        font-size: 0.65em !important;
+    }
+    
+    .link-cell {
+        font-size: 0.55em !important;
+        max-width: 80px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+    
+    .attendance-badge,
+    .status-badge {
+        font-size: 0.55em !important;
+        padding: 2px 5px !important;
+    }
+    
+    .action-btn {
+        padding: 2px 5px !important;
+        font-size: 0.6em !important;
+    }
+    
+    /* =========================================
+       PHOTO GALLERY - MOBILE FIX
+       This is the KEY change for mobile
+    ========================================= */
+    
+    .couple-gallery-section {
+        padding: 12px 8px !important;
+        margin: 12px 0 !important;
+        border-radius: 12px !important;
+    }
+    
+    /* Hide decorative corners on mobile */
+    .couple-gallery-section::before,
+    .couple-gallery-section::after {
+        display: none !important;
+    }
+    
+    /* Gallery title */
+    .gallery-title {
+        gap: 8px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .gallery-title h2 {
+        font-size: 0.8em !important;
+        white-space: normal !important;
+        padding: 0 5px !important;
+    }
+    
+    .title-line {
+        max-width: 40px !important;
+    }
+    
+    /* Featured photo */
+    .featured-frame {
+        width: 100px !important;
+        height: 100px !important;
+        border-width: 3px !important;
+    }
+    
+    .featured-frame .initials-large {
+        font-size: 1.2em !important;
+    }
+    
+    .couple-names-preview {
+        font-size: 0.85em !important;
+        gap: 5px !important;
+        margin: 8px 0 4px 0 !important;
+    }
+    
+    .couple-names-preview .heart {
+        font-size: 0.9em !important;
+    }
+    
+    .wedding-date-preview {
+        font-size: 0.7em !important;
+        margin: 4px 0 12px 0 !important;
+    }
+    
+    /* ===== PHOTO GRID - 3 COLUMNS ON MOBILE ===== */
+    .photo-gallery-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 5px !important;
+        padding: 0 !important;
+        margin: 10px 0 !important;
+    }
+    
+    .gallery-item {
+        border-width: 2px !important;
+        border-radius: 6px !important;
+        aspect-ratio: 1 !important;
+    }
+    
+    .gallery-item .initials-small {
+        font-size: 1em !important;
+    }
+    
+    .gallery-divider {
+        font-size: 0.7em !important;
+        letter-spacing: 2px !important;
+        margin-top: 10px !important;
+    }
+    
+    /* ===== FOOTER ===== */
+    .admin-container footer,
+    footer {
+        font-size: 0.6em !important;
+        padding: 8px 5px !important;
+        width: 100% !important;
+        margin-top: 10px !important;
+    }
+}
+
+/* =========================================
+   VERY SMALL MOBILE (under 400px)
+========================================= */
+
+@media (max-width: 400px) {
+    .admin-container {
+        padding: 10px 6px !important;
+    }
+    
+    .admin-container h1 {
+        font-size: 0.85em !important;
+    }
+    
+    .subtitle {
+        font-size: 0.6em !important;
+    }
+    
+    .admin-btn {
+        font-size: 0.8em !important;
+        padding: 9px !important;
+    }
+    
+    .featured-frame {
+        width: 85px !important;
+        height: 85px !important;
+        border-width: 3px !important;
+    }
+    
+    .featured-frame .initials-large {
+        font-size: 1em !important;
+    }
+    
+    .couple-names-preview {
+        font-size: 0.75em !important;
+    }
+    
+    .wedding-date-preview {
+        font-size: 0.65em !important;
+    }
+    
+    .photo-gallery-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 4px !important;
+    }
+    
+    .gallery-item .initials-small {
+        font-size: 0.9em !important;
+    }
+    
+    .share-btn {
+        flex: 1 1 100% !important;
+        font-size: 0.7em !important;
+    }
+    
+    .stat-item {
+        flex: 1 1 calc(50% - 5px) !important;
+    }
+    
+    .password-input input,
+    .password-input button {
+        width: 95% !important;
+        max-width: none !important;
+    }
+}
+
+
+
     </style>
 </head>
 <body>
     <div class="admin-container">
         <h1>💍 Wedding Invitation Admin Dashboard</h1>
-        <p class="subtitle">ለእንግዶች የግብዣ ካርድ እና ማገኛ ሊንኮችን መፍጠሪያ እና ማስተዳደሪያ</p>
-
+        <p class="subtitle">
+            <b>ለተጋባዥ እንግዶች የግብዣ ካርድ እና ማገናኛ ሊንኮችን መፍጠሪያና መላኪያ ዳሽቦርድ</b></p>
+        
         <div class="admin-buttons">
-            <button class="admin-btn btn-john" onclick="showAdminPanel('JOHN')">👨 ዮሐንስ ቤተሰብ</button>
-            <button class="admin-btn btn-sol" onclick="showAdminPanel('SOL')">👩 ሰላም ቤተሰብ</button>
+            <button class="admin-btn btn-john" onclick="showAdminPanel('JOHN')">👨 የዮሀንስ ቤተሰብ</button>
+            <button class="admin-btn btn-sol" onclick="showAdminPanel('SOL')">👩 የሰላም ቤተሰብ</button>
         </div>
-
+        
         <!-- ============================================ -->
         <!-- JOHN's PANEL                                 -->
         <!-- ============================================ -->
         <div id="panel-JOHN" class="panel">
-            <h2 style="color:#2c3e50;">👨 ዮሐንስ ቤተሰብ - Admin</h2>
+            <h2 style="color:#2c3e50;">👨 የዮሀንስ ቤተሰብ - Admin</h2>
             <div class="password-input">
                 <input type="password" id="password-JOHN" placeholder="Enter admin password">
                 <button onclick="authenticate('JOHN')">Unlock</button>
@@ -1282,52 +1484,59 @@
                         <div class="stat-label">Active</div>
                     </div>
                 </div>
-
+                
                 <div class="generate-area">
-                    <label>👤 Guest Full Name:</label>
-                    <input type="text" id="guest-name-JOHN" placeholder="e.g., አቶ ብሩክ ደሳለኝ">
-
-                    <label>👥 የመገኛ ሁኔታ (Attendance Option):</label>
+                    <label>👤 የእንግዳው ስም:</label>
+                    <input type="text" id="guest-name-JOHN" placeholder="የእንግዳ ስም አስገባ፡ ወ/ሮ ፣ አቶ">
+                    
+                    <label>👥 አብረው የሚገኙትን ምረጥ (Attending With):</label>
                     <select id="attendance-JOHN">
-                        <option value="">-- አይምረጡ --</option>
+                        <option value="">-- ለብቻዎ --</option>
                         <option value="ከባለቤትዎ ጋር">ከባለቤትዎ ጋር</option>
                         <option value="ከቤተሰብዎ ጋር">ከቤተሰብዎ ጋር</option>
                     </select>
-
-                    <button class="generate-btn" onclick="generateLink('JOHN')">🔗 Generate Invitation Link</button>
-
+                    
+                    <button class="generate-btn" onclick="generateLink('JOHN')">🔗 የግብዣውን ሊንክ ፍጠር</button>
+                    
                     <div id="new-link-JOHN" class="link-display" style="display:none; margin-top:15px;">
-                        <strong>✅ New Link Generated:</strong><br>
+                        <strong>✅ አዲሱ የግብዣ ሊንክ በትክክል ተፈጥሯል:</strong><br>
                         <span class="link-url" id="link-text-JOHN"></span><br>
-
+                        
+                        <!-- ===== PREVIEW BUTTON ===== -->
                         <div class="preview-section" id="preview-section-JOHN">
-                            <button class="preview-btn" onclick="previewInvitation('JOHN')">👁️ Preview Invitation Card</button>
+                            <button class="preview-btn" onclick="previewInvitation('JOHN')">👁️ ካርዱን ለማየት ከፈለክ ይሄንን ክፈት</button>
                             <p class="preview-hint">Opens the invitation in a new tab as the guest will see it</p>
                         </div>
-
+                        
+                        <!-- ===== SHARE BUTTONS ===== -->
                         <div class="share-buttons-container">
-                            <p>📤 Share this invitation with the guest:</p>
+                            <p>📤 የግብዣውን ሊንክ ለእንግዳው እንዲደርስ ከነዚህ መተግበሪያዎች አንዱን ከፍተህ ላክ:</p>
                             <div class="share-buttons">
                                 <button class="share-btn share-whatsapp" onclick="shareVia('whatsapp', 'JOHN')">
                                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                                     WhatsApp
                                 </button>
+                                
                                 <button class="share-btn share-telegram" onclick="shareVia('telegram', 'JOHN')">
                                     <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                                     Telegram
                                 </button>
+                                
                                 <button class="share-btn share-messenger" onclick="shareVia('messenger', 'JOHN')">
                                     <svg viewBox="0 0 24 24"><path d="M12 0C5.383 0 0 5.383 0 12c0 2.628.84 5.054 2.272 7.005L1.5 23.25l4.464-2.238A11.925 11.925 0 0012 24c6.617 0 12-5.383 12-12S18.617 0 12 0zm0 19.5c-1.343 0-2.604-.36-3.696-.99l-3.87 1.94 1.3-3.585A8.876 8.876 0 013 12c0-4.962 4.038-9 9-9s9 4.038 9 9-4.038 9-9 9zm1.935-7.335l-2.775-2.96-5.415 2.96 5.955-6.32 2.805 2.96 5.415-2.96-5.985 6.32z"/></svg>
                                     Messenger
                                 </button>
+                                
                                 <button class="share-btn share-email" onclick="shareVia('email', 'JOHN')">
                                     <svg viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
                                     Email
                                 </button>
+                                
                                 <button class="share-btn share-sms" onclick="shareVia('sms', 'JOHN')">
                                     <svg viewBox="0 0 24 24"><path d="M2.25 12.76c0 1.247.304 2.426.842 3.47l-1.052 3.518 3.773-1.49a9.738 9.738 0 004.687 1.242 9.75 9.75 0 100-19.5 9.75 9.75 0 00-8.25 12.76z"/></svg>
                                     SMS
                                 </button>
+                                
                                 <button class="share-btn share-copy" onclick="copyLink('JOHN')">
                                     📋 Copy Link
                                 </button>
@@ -1335,10 +1544,11 @@
                         </div>
                     </div>
                 </div>
-
+                
+                <!-- ===== TABLE VIEW ===== -->
                 <div class="table-container" id="table-container-JOHN">
                     <div class="table-header-actions">
-                        <h3>📋 Guest List</h3>
+                        <h3>📋 የተጋበዙት እንግዶች ስም ዝርዝር</h3>
                         <span class="table-count" id="count-JOHN">0 guests</span>
                     </div>
                     <table class="guest-table" id="guest-table-JOHN">
@@ -1361,12 +1571,12 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- ============================================ -->
         <!-- SOL's PANEL                                  -->
         <!-- ============================================ -->
         <div id="panel-SOL" class="panel">
-            <h2 style="color:#8B0000;">👩 ሰላም ቤተሰብ - Admin</h2>
+            <h2 style="color:#8B0000;">👩 የሰላም ቤተሰብ - Admin</h2>
             <div class="password-input">
                 <input type="password" id="password-SOL" placeholder="Enter admin password">
                 <button onclick="authenticate('SOL')">Unlock</button>
@@ -1386,52 +1596,59 @@
                         <div class="stat-label">Active</div>
                     </div>
                 </div>
-
+                
                 <div class="generate-area">
-                    <label>👤 Guest Full Name:</label>
-                    <input type="text" id="guest-name-SOL" placeholder="e.g., ወ/ሮ ሰላም አብዲ">
-
-                    <label>👥 የመገኛ ሁኔታ (Attendance Option):</label>
+                    <label>👤 የእንግዳው ስም:</label>
+                    <input type="text" id="guest-name-SOL" placeholder="የእንግዳ ስም አስገባ፡ ወ/ሮ ፣ አቶ">
+                    
+                    <label>👥 አብረው የሚገኙትን ምረጥ (Attending With):</label>
                     <select id="attendance-SOL">
-                        <option value="">-- አይምረጡ --</option>
+                        <option value="">-- ለብቻዎ --</option>
                         <option value="ከባለቤትዎ ጋር">ከባለቤትዎ ጋር</option>
                         <option value="ከቤተሰብዎ ጋር">ከቤተሰብዎ ጋር</option>
                     </select>
-
-                    <button class="generate-btn" onclick="generateLink('SOL')">🔗 Generate Invitation Link</button>
-
+                    
+                    <button class="generate-btn" onclick="generateLink('SOL')">🔗 የግብዣውን ሊንክ ፍጠር</button>
+                    
                     <div id="new-link-SOL" class="link-display" style="display:none; margin-top:15px;">
-                        <strong>✅ New Link Generated:</strong><br>
+                        <strong>✅ አዲሱ የግብዣ ሊንክ ተፈጥሯል:</strong><br>
                         <span class="link-url" id="link-text-SOL"></span><br>
-
+                        
+                        <!-- ===== PREVIEW BUTTON ===== -->
                         <div class="preview-section" id="preview-section-SOL">
-                            <button class="preview-btn" onclick="previewInvitation('SOL')">👁️ Preview Invitation Card</button>
+                            <button class="preview-btn" onclick="previewInvitation('SOL')">👁️ ካርዱን ለማየት ከፈለክ ይሄንን ክፈት</button>
                             <p class="preview-hint">Opens the invitation in a new tab as the guest will see it</p>
                         </div>
-
+                        
+                        <!-- ===== SHARE BUTTONS ===== -->
                         <div class="share-buttons-container">
-                            <p>📤 Share this invitation with the guest:</p>
+                            <p>📤 የግብዣውን ሊንክ ለእንግዳው እንዲደርስ ከነዚህ መተግበሪያዎች አንዱን ከፍተህ ላክ:</p>
                             <div class="share-buttons">
                                 <button class="share-btn share-whatsapp" onclick="shareVia('whatsapp', 'SOL')">
                                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                                     WhatsApp
                                 </button>
+                                
                                 <button class="share-btn share-telegram" onclick="shareVia('telegram', 'SOL')">
                                     <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                                     Telegram
                                 </button>
+                                
                                 <button class="share-btn share-messenger" onclick="shareVia('messenger', 'SOL')">
                                     <svg viewBox="0 0 24 24"><path d="M12 0C5.383 0 0 5.383 0 12c0 2.628.84 5.054 2.272 7.005L1.5 23.25l4.464-2.238A11.925 11.925 0 0012 24c6.617 0 12-5.383 12-12S18.617 0 12 0zm0 19.5c-1.343 0-2.604-.36-3.696-.99l-3.87 1.94 1.3-3.585A8.876 8.876 0 013 12c0-4.962 4.038-9 9-9s9 4.038 9 9-4.038 9-9 9zm1.935-7.335l-2.775-2.96-5.415 2.96 5.955-6.32 2.805 2.96 5.415-2.96-5.985 6.32z"/></svg>
                                     Messenger
                                 </button>
+                                
                                 <button class="share-btn share-email" onclick="shareVia('email', 'SOL')">
                                     <svg viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
                                     Email
                                 </button>
+                                
                                 <button class="share-btn share-sms" onclick="shareVia('sms', 'SOL')">
                                     <svg viewBox="0 0 24 24"><path d="M2.25 12.76c0 1.247.304 2.426.842 3.47l-1.052 3.518 3.773-1.49a9.738 9.738 0 004.687 1.242 9.75 9.75 0 100-19.5 9.75 9.75 0 00-8.25 12.76z"/></svg>
                                     SMS
                                 </button>
+                                
                                 <button class="share-btn share-copy" onclick="copyLink('SOL')">
                                     📋 Copy Link
                                 </button>
@@ -1439,10 +1656,11 @@
                         </div>
                     </div>
                 </div>
-
+                
+                <!-- ===== TABLE VIEW ===== -->
                 <div class="table-container" id="table-container-SOL">
                     <div class="table-header-actions">
-                        <h3>📋 Guest List</h3>
+                        <h3>📋 የተጋበዙት እንግዶች ስም ዝርዝር</h3>
                         <span class="table-count" id="count-SOL">0 guests</span>
                     </div>
                     <table class="guest-table" id="guest-table-SOL">
@@ -1466,96 +1684,100 @@
             </div>
         </div>
 
-        <!-- ============================================ -->
-        <!-- COUPLE PHOTO GALLERY (bottom)                -->
-        <!-- ============================================ -->
+        
+        <!-- 👇 GALLERY APPEARS HERE — Below both admin panels 👇 -->
         <div class="couple-gallery-section">
             <div class="gallery-title">
                 <span class="title-line"></span>
-                <h2>💑 የሙሽራዎቹ ፎቶዎች</h2>
+                <h2>💑 Couple's Photo Gallery</h2>
                 <span class="title-line"></span>
             </div>
-
+            
             <div class="featured-photo">
                 <div class="featured-frame">
-                    <img src="seljo.png" alt="Yohannes and Selam"
+                    <img src="seljo1.png" alt="Yohannes and Selam"
                          onerror="this.parentElement.innerHTML='<span class=\'initials-large\'>ዮ ❤️ ሰ</span>'">
                 </div>
             </div>
-
+            
             <p class="couple-names-preview">
-                <span>የዮሐንስ ሸዋ</span>
+                <span>ዮሐንስ</span>
                 <span class="heart">❤️</span>
-                <span>ሰላም ማረኝ</span>
+                <span>ሰላም</span>
             </p>
-
+            
             <p class="wedding-date-preview">
-                📅 ጥቅምት 7 ቀን 2019 ዓ.ም
+                📅 2019 ዓ.ም
             </p>
-
+            
             <div class="photo-gallery-grid">
+                <div class="gallery-item"><img src="gal/sol01.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol2.jpeg" alt="Photo 2" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💕</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol4.jpeg" alt="Photo 3" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💐</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol5.jpeg" alt="Photo 4" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌸</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol14.jpeg" alt="Photo 5" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💒</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol8.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                
+                <div class="gallery-item"><img src="gal/sol10.jpeg" alt="Photo 2" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💕</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol11.jpeg" alt="Photo 3" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💐</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol12.jpeg" alt="Photo 4" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌸</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol6.jpeg" alt="Photo 5" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💒</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol15.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                <div class="gallery-item"><img src="gal/sol16.jpeg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                
+                <div class="gallery-item"><img src="photo6.jpg" alt="Photo 6" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>✨</span>'"></div>
+                <div class="gallery-item"><img src="photo1.jpg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
+                <div class="gallery-item"><img src="photo2.jpg" alt="Photo 2" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💕</span>'"></div>
+                <div class="gallery-item"><img src="photo3.jpg" alt="Photo 3" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💐</span>'"></div>
+                <div class="gallery-item"><img src="photo4.jpg" alt="Photo 4" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌸</span>'"></div>
+                <div class="gallery-item"><img src="photo6.jpg" alt="Photo 6" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>✨</span>'"></div>
                 <div class="gallery-item"><img src="photo1.jpg" alt="Photo 1" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💑</span>'"></div>
                 <div class="gallery-item"><img src="photo2.jpg" alt="Photo 2" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💕</span>'"></div>
                 <div class="gallery-item"><img src="photo3.jpg" alt="Photo 3" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💐</span>'"></div>
                 <div class="gallery-item"><img src="photo4.jpg" alt="Photo 4" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌸</span>'"></div>
                 <div class="gallery-item"><img src="photo5.jpg" alt="Photo 5" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💒</span>'"></div>
                 <div class="gallery-item"><img src="photo6.jpg" alt="Photo 6" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>✨</span>'"></div>
-                <div class="gallery-item"><img src="photo7.jpg" alt="Photo 7" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌹</span>'"></div>
-                <div class="gallery-item"><img src="photo8.jpg" alt="Photo 8" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💖</span>'"></div>
-                <div class="gallery-item"><img src="photo9.jpg" alt="Photo 9" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🌟</span>'"></div>
-                <div class="gallery-item"><img src="photo10.jpg" alt="Photo 10" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🎉</span>'"></div>
-                <div class="gallery-item"><img src="photo11.jpg" alt="Photo 11" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>🎊</span>'"></div>
-                <div class="gallery-item"><img src="photo12.jpg" alt="Photo 12" onerror="this.parentElement.innerHTML='<span class=\'initials-small\'>💝</span>'"></div>
             </div>
-
+            
             <div class="gallery-divider">
                 ✿ ✿ ✿ ❀ ✿ ✿ ❀ ✿ ✿ ✿
             </div>
         </div>
+        <!-- 👆 END GALLERY 👆 -->
+        
 
-        <!-- ============================================ -->
-        <!-- FOOTER                                       -->
-        <!-- ============================================ -->
-        <div class="admin-footer">
-            ©Developed by: <a href="tel:+251970620203">Fekadu Wolde</a> | 2026 Ethiopia
-        </div>
+      <footer class="footer">
+            <p>
+                &copy;<span> Developed by </span>:
+                <i class="fas fa-code mr-1"></i>Fekadu Wolde | 2026 Ethiopia
+            </p>
+      </footer>
 
     </div>
 
-    <!-- ============================================ -->
-    <!-- LIGHTBOX                                     -->
-    <!-- ============================================ -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" src="" alt="Enlarged photo">
-    </div>
-
-    <!-- ============================================ -->
-    <!-- JAVASCRIPT                                   -->
-    <!-- ============================================ -->
+    
     <script>
         // ============================================
-        // CONFIGURATION
-        // ⚠️ CHANGE THESE PASSWORDS! ⚠️
+        // ADMIN PANEL - COMPLETE WITH TABLE VIEW
         // ============================================
+        
+        // ===== CONFIGURATION =====
+        // ⚠️ CHANGE THESE PASSWORDS! ⚠️
         const ADMIN_PASSWORDS = {
-            'JOHN': 'JohnFamily2026',
-            'SOL': 'SolFamily2026'
+            'JOHN': 'yohannes',
+            'SOL': 'selam'
         };
-
+        
         // Load data from localStorage
         let weddingData = JSON.parse(localStorage.getItem('weddingLinks')) || {
             JOHN: { links: [], nextId: 1 },
             SOL: { links: [], nextId: 1 }
         };
-
+        
         function saveData() {
             localStorage.setItem('weddingLinks', JSON.stringify(weddingData));
         }
-
-        // ============================================
-        // ADMIN PANEL
-        // ============================================
+        
         function showAdminPanel(admin) {
             document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
             document.getElementById(`panel-${admin}`).classList.add('active');
@@ -1563,7 +1785,7 @@
             document.getElementById(`password-${admin}`).value = '';
             document.getElementById(`guest-name-${admin}`).value = '';
         }
-
+        
         function authenticate(admin) {
             const password = document.getElementById(`password-${admin}`).value;
             if (password === ADMIN_PASSWORDS[admin]) {
@@ -1571,35 +1793,32 @@
                 updateStats(admin);
                 renderTable(admin);
             } else {
-                alert('❌ Wrong password! Please contact the couple.');
+                alert('❌ የይለፍ ቃሉን ተሳስተዋል! እባክህ ለማስታወስ ከተቸገሩ ዌብሳይቱን የሰራውን ሰው (ፍቃዱ ወልዴን) ይጠይቁ። ደጋግመው አይሞክሩት!');
             }
         }
-
-        // ============================================
-        // GENERATE LINK
-        // ============================================
+        
         function generateLink(admin) {
             const guestName = document.getElementById(`guest-name-${admin}`).value.trim();
             if (!guestName) {
-                alert('⚠️ Please enter the guest\'s full name first!');
+                alert('⚠️ እባክዎ መጀመሪያ የተጋባዡን ስም ያስገቡ!');
                 return;
             }
-
+            
             const attendanceSelect = document.getElementById(`attendance-${admin}`);
             const attendance = attendanceSelect ? attendanceSelect.value : '';
-
+            
             const id = weddingData[admin].nextId++;
             const code = `${admin}-${id}-${Date.now().toString(36)}`;
             const encodedName = encodeURIComponent(guestName);
             const encodedAttendance = encodeURIComponent(attendance);
-
+            
             const page = admin === 'JOHN' ? 'index2.html' : 'index.html';
             let link = `https://fike66.github.io/me/${page}?code=${code}&name=${encodedName}`;
-
+            
             if (attendance) {
                 link += `&attendance=${encodedAttendance}`;
             }
-
+            
             weddingData[admin].links.push({
                 id: id,
                 code: code,
@@ -1609,29 +1828,27 @@
                 used: false,
                 createdAt: new Date().toISOString()
             });
-
+            
             saveData();
-
+            
             const linkDisplay = document.getElementById(`new-link-${admin}`);
             document.getElementById(`link-text-${admin}`).textContent = link;
             linkDisplay.style.display = 'block';
-
+            
             const previewSection = document.getElementById(`preview-section-${admin}`);
             if (previewSection) {
                 previewSection.style.display = 'block';
             }
-
+            
             updateStats(admin);
             renderTable(admin);
-
+            
             document.getElementById(`guest-name-${admin}`).value = '';
             document.getElementById(`guest-name-${admin}`).focus();
             linkDisplay.scrollIntoView({ behavior: 'smooth' });
         }
-
-        // ============================================
-        // PREVIEW INVITATION
-        // ============================================
+        
+        // ===== PREVIEW INVITATION =====
         function previewInvitation(admin) {
             const linkText = document.getElementById(`link-text-${admin}`).textContent;
             if (linkText && linkText.startsWith('http')) {
@@ -1640,20 +1857,18 @@
                 alert('⚠️ Please generate a link first!');
             }
         }
-
-        // ============================================
-        // SHARE FUNCTIONS
-        // ============================================
+        
+        // ===== SHARE FUNCTIONS =====
         function shareVia(platform, admin) {
             const linkText = document.getElementById(`link-text-${admin}`).textContent;
             const guestName = getGuestNameFromLink(admin);
-
-            const message = `ውድ ${guestName}፣ \nየዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ ፕሮግራም ላይ አንዲገኙ በክብር ጠርተንዎታል። \nቀኑን እና ቦታውን ለማወቅ ሊንኩን ከፍተው ይመልከቱ። \nከቤተሰቦቻቸው። \n\n${linkText}`;
-
+            
+            const message = `ውድ ${guestName}፣ \nየዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ መልስ ፕሮግራም ላይ አንዲገኙ በክብር ጠርተንዎታል። \nቀኑን እና ቦታውን ለማወቅ ሊንኩን ከፍተው ይመልከቱ። \nከቤተሰቦቻቸው። \n\n${linkText}`;
+            
             const encodedMessage = encodeURIComponent(message);
             let shareUrl = '';
-
-            switch (platform) {
+            
+            switch(platform) {
                 case 'whatsapp':
                     shareUrl = `https://wa.me/?text=${encodedMessage}`;
                     break;
@@ -1672,14 +1887,14 @@
                 default:
                     return;
             }
-
+            
             if (platform === 'messenger') {
                 window.open(shareUrl, 'messenger-share', 'width=600,height=400');
             } else {
                 window.open(shareUrl, '_blank');
             }
         }
-
+        
         function getGuestNameFromLink(admin) {
             const linkText = document.getElementById(`link-text-${admin}`).textContent;
             const match = linkText.match(/name=([^&]+)/);
@@ -1688,10 +1903,7 @@
             }
             return 'እንግዳ';
         }
-
-        // ============================================
-        // COPY LINK
-        // ============================================
+        
         function copyLink(admin) {
             const linkText = document.getElementById(`link-text-${admin}`).textContent;
             navigator.clipboard.writeText(linkText).then(() => {
@@ -1706,7 +1918,7 @@
                 alert('✅ Link copied!');
             });
         }
-
+        
         function copyLinkFromTable(admin, code) {
             const links = weddingData[admin].links;
             const link = links.find(l => l.code === code);
@@ -1724,22 +1936,16 @@
                 });
             }
         }
-
-        // ============================================
-        // REVOKE LINK
-        // ============================================
+        
         function revokeLink(admin, code) {
-            if (!confirm('⚠️ Are you sure you want to revoke this link? The guest will no longer be able to access the invitation.')) return;
-
+            if (!confirm('⚠️ እርግጠኛ ነዎት ይህንን ሊንክ መሰረዝ ይፈልጋሉ? እንግዳው ከአሁን በኋላ ሊንኩን ከፍቶ ማየት አይችልም።')) return;
+            
             weddingData[admin].links = weddingData[admin].links.filter(l => l.code !== code);
             saveData();
             updateStats(admin);
             renderTable(admin);
         }
-
-        // ============================================
-        // UPDATE STATS
-        // ============================================
+        
         function updateStats(admin) {
             const links = weddingData[admin].links;
             document.getElementById(`total-${admin}`).textContent = links.length;
@@ -1747,27 +1953,12 @@
             document.getElementById(`active-${admin}`).textContent = links.filter(l => !l.used).length;
             document.getElementById(`count-${admin}`).textContent = `${links.length} guests`;
         }
-
-        // ============================================
-        // REFRESH STATS
-        // ============================================
-        function refreshStats(admin) {
-            weddingData = JSON.parse(localStorage.getItem('weddingLinks')) || {
-                JOHN: { links: [], nextId: 1 },
-                SOL: { links: [], nextId: 1 }
-            };
-            updateStats(admin);
-            renderTable(admin);
-            alert('✅ Stats refreshed!');
-        }
-
-        // ============================================
-        // RENDER TABLE
-        // ============================================
+        
+        // ===== RENDER TABLE =====
         function renderTable(admin) {
             const tbody = document.getElementById(`table-body-${admin}`);
             const links = weddingData[admin].links;
-
+            
             if (links.length === 0) {
                 tbody.innerHTML = `
                     <tr>
@@ -1776,34 +1967,40 @@
                 `;
                 return;
             }
-
+            
+            // Sort by ID (newest first)
             const sortedLinks = [...links].reverse();
-
+            
             tbody.innerHTML = sortedLinks.map((link, index) => {
+                // Roll number
                 const rollNumber = sortedLinks.length - index;
-
+                
+                // Attendance badge
                 let attendanceBadge = '';
                 if (link.attendance) {
                     attendanceBadge = `<span class="attendance-badge attendance-with">👥 ${link.attendance}</span>`;
                 } else {
                     attendanceBadge = `<span class="attendance-badge attendance-single">👤 ብቻዎን</span>`;
                 }
-
-                const statusBadge = link.used
+                
+                // Status badge
+                const statusBadge = link.used 
                     ? `<span class="status-badge status-used">✅ Opened</span>`
                     : `<span class="status-badge status-active">🟢 Active</span>`;
-
+                
+                // Link with copy button
                 const linkDisplay = `
                     <span class="link-cell">
                         <a href="${link.link}" target="_blank">${link.link.substring(0, 40)}...</a>
                     </span>
                 `;
-
+                
+                // Actions
                 const actions = `
                     <button class="action-btn btn-copy-link" onclick="copyLinkFromTable('${admin}', '${link.code}')" title="Copy link">📋</button>
                     <button class="action-btn btn-revoke" onclick="revokeLink('${admin}', '${link.code}')" title="Revoke link">✕</button>
                 `;
-
+                
                 return `
                     <tr>
                         <td class="col-roll">${rollNumber}</td>
@@ -1816,65 +2013,63 @@
                 `;
             }).join('');
         }
-
-        // ============================================
-        // LIGHTBOX
-        // ============================================
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-
-            if (lightbox && lightboxImg) {
-                lightboxImg.src = src;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox) {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
-
-        // ============================================
-        // PAGE LOAD
-        // ============================================
-        document.addEventListener('DOMContentLoaded', function() {
-            // Lightbox for featured photo
-            const featuredFrame = document.querySelector('.featured-frame');
-            if (featuredFrame) {
-                featuredFrame.style.cursor = 'pointer';
-                featuredFrame.addEventListener('click', function() {
-                    const img = this.querySelector('img');
-                    if (img) openLightbox(img.src);
-                });
-            }
-
-            // Lightbox for gallery items
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const img = this.querySelector('img');
-                    if (img) openLightbox(img.src);
-                });
-            });
-
-            // Close with ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                }
-            });
-        });
-
+        
         // Auto-open panel if admin is in URL
         const urlParams = new URLSearchParams(window.location.search);
         const adminParam = urlParams.get('admin');
         if (adminParam && ['JOHN', 'SOL'].includes(adminParam)) {
             showAdminPanel(adminParam);
         }
+
+        // ===== LIGHTBOX FUNCTIONALITY =====
+
+function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    if (lightbox && lightboxImg) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Add click handlers to all gallery images
+document.addEventListener('DOMContentLoaded', function() {
+    // Featured photo
+    const featuredFrame = document.querySelector('.featured-frame');
+    if (featuredFrame) {
+        featuredFrame.style.cursor = 'pointer';
+        featuredFrame.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) openLightbox(img.src);
+        });
+    }
+    
+    // Gallery items
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) openLightbox(img.src);
+        });
+    });
+    
+    // Close with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+});
     </script>
+    
 </body>
 </html>
