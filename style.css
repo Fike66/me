@@ -257,7 +257,7 @@ body {
 ========================================= */
 
 .card-section::after {
-    content: "✿ ❀ ✿";
+    content: "✿ 💍 ✿";
 
     align-items: center;
 
@@ -762,7 +762,7 @@ body {
 /* Inner gold frame */
 
 .invitation::before {
-    content: "";
+    content: "💖";
 
     position: absolute;
 
@@ -781,7 +781,7 @@ body {
 ========================================= */
 
 .invitation::after {
-    content: "❧";
+    content: "💐";
 
     position: absolute;
 
@@ -805,7 +805,7 @@ body {
 /* Additional corner decorations */
 
 .photo-side::before {
-    content: "❧";
+    content: "🪷";
 
     position: absolute;
 
@@ -825,7 +825,7 @@ body {
 
 
 .photo-side::after {
-    content: "❧";
+    content: "🪷";
 
     position: absolute;
 
@@ -845,7 +845,7 @@ body {
 
 
 .information-side::after {
-    content: "❧";
+    content: "🪷";
 
     position: absolute;
 
