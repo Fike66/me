@@ -1026,7 +1026,7 @@ body {
     width: 100px;
     height: 75px;
     right: 15px;
-    bottom: 30px;
+    bottom: 20px;
 
     z-index: 10;
     pointer-events: none;
@@ -1038,7 +1038,7 @@ body {
     width: 100px;
     height: 85px;
     right: 15px;
-    bottom: 35px;
+    bottom: 25px;
 
     z-index: 10;
     pointer-events: none;
