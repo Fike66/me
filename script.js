@@ -181,13 +181,13 @@ function removeUnauthorizedButtons() {
 async function shareCard() {
     const guestName = document.getElementById("guestName").value.trim();
     const shareText = guestName
-        ? `ውድ ${guestName}፣ የዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ መልስ ፕሮግራም ላይ አንዲገኙ በክብር ጠርተንዎታል። ቀኑን እና ቦታውን ለማወቅ ሊንኩን ከፍተው ይመልከቱ። ከቤተሰቦቻቸው።`
-        : `የዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ መልስ`;
+        ? `ውድ ${guestName}፣ የዮሐንስ ሸዋ እና የሰላም ማረኝ የቤተሰብ ቅልቅል ፕሮግራም ላይ አንዲገኙልን በክብር ጠርተንዎታል። ቀኑን እና ቦታውን ለማወቅ ሊንኩን ከፍተው ይመልከቱ። ከቤተሰቦቻቸው።`
+        : `የዮሐንስ ሸዋ እና የሰላም ማረኝ የጋብቻ ቅልቅል`;
 
     if (navigator.share) {
         try {
             await navigator.share({
-                title: "የጋብቻ መልስ",
+                title: "የጋብቻ ቅልቅል",
                 text: shareText,
                 url: window.location.href
             });
